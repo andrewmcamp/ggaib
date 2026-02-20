@@ -59,24 +59,37 @@ aib_font_families <- function() {
 #'
 #' Checks for locally installed preferred fonts. If not found, registers
 #' Google Font fallbacks via sysfonts and enables showtext rendering.
+#' Falls back to `"sans"` for all roles if font registration fails
+#' (e.g., when required packages like jsonlite are unavailable).
 #'
 #' @keywords internal
 register_aib_fonts <- function() {
-  registered <- sysfonts::font_families()
-  fonts <- list()
+  tryCatch(
+    {
+      registered <- sysfonts::font_families()
+      fonts <- list()
 
-  for (role in names(.font_config)) {
-    config <- .font_config[[role]]
-    if (config$preferred %in% registered) {
-      fonts[[role]] <- config$preferred
-    } else {
-      if (!(config$fallback %in% registered)) {
-        sysfonts::font_add_google(config$fallback, config$fallback)
+      for (role in names(.font_config)) {
+        config <- .font_config[[role]]
+        if (config$preferred %in% registered) {
+          fonts[[role]] <- config$preferred
+        } else {
+          if (!(config$fallback %in% registered)) {
+            sysfonts::font_add_google(config$fallback, config$fallback)
+          }
+          fonts[[role]] <- config$fallback
+        }
       }
-      fonts[[role]] <- config$fallback
-    }
-  }
 
-  .aib_env$fonts <- fonts
-  showtext::showtext_auto()
+      .aib_env$fonts <- fonts
+      showtext::showtext_auto()
+    },
+    error = function(e) {
+      .aib_env$fonts <- list(
+        heading = "sans",
+        body    = "sans",
+        serif   = "serif"
+      )
+    }
+  )
 }
