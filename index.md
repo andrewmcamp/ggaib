@@ -193,5 +193,5 @@ ggplot(districts2, aes(enrollment, avg_score, color = spending_change)) +
 ```
 
 ![Scatter plot of districts colored by year-over-year spending change
-using a diverging red-taupe-navy
+using a diverging red-sky-navy
 scale](reference/figures/README-scale-diverging-1.png)
