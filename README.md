@@ -187,4 +187,4 @@ ggplot(districts2, aes(enrollment, avg_score, color = spending_change)) +
   theme_aib()
 ```
 
-<img src="man/figures/README-scale-diverging-1.png" alt="Scatter plot of districts colored by year-over-year spending change using a diverging red-sky-navy scale" width="672" />
+<img src="man/figures/README-scale-diverging-1.png" alt="Scatter plot of districts colored by year-over-year spending change using a diverging red-gray-navy scale" width="672" />
