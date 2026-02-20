@@ -3,6 +3,8 @@ url: https://andrewmcamp.github.io/ggaib/
 figures:
   dev: ragg::agg_png
   dpi: 600
+  fig.width: 3.5
+  fig.height: 2
 
 template:
   bootstrap: 5
