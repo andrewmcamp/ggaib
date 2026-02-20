@@ -231,6 +231,13 @@ Discrete, continuous, and diverging scales using AIB brand colors
 - [`scale_fill_aib_div()`](https://andrewmcamp.github.io/ggaib/reference/scale_fill_aib_div.md)
   : Diverging AIB Fill Scale
 
+## Labels
+
+Axis label formatters
+
+- [`aib_label()`](https://andrewmcamp.github.io/ggaib/reference/aib_label.md)
+  : Axis Label Formatters
+
 ## Palette
 
 Access brand colors directly

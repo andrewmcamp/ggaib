@@ -1,13 +1,13 @@
 # Diverging AIB Fill Scale
 
-Creates a diverging fill gradient. Defaults to red-white-navy.
+Creates a diverging fill gradient. Defaults to red-gray-navy.
 
 ## Usage
 
 ``` r
 scale_fill_aib_div(
   low = "#C00404",
-  mid = "white",
+  mid = "#D0D0D0",
   high = "#1B3E6F",
   midpoint = 0,
   ...
@@ -22,7 +22,7 @@ scale_fill_aib_div(
 
 - mid:
 
-  Color for the midpoint. Default is white.
+  Color for the midpoint. Default is light gray.
 
 - high:
 

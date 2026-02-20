@@ -10,9 +10,11 @@ palette.
 
 Useful links:
 
-- <https://github.com/andrewcamp/ggaib>
+- <https://andrewmcamp.github.io/ggaib/>
 
-- Report bugs at <https://github.com/andrewcamp/ggaib/issues>
+- <https://github.com/andrewmcamp/ggaib>
+
+- Report bugs at <https://github.com/andrewmcamp/ggaib/issues>
 
 ## Author
 

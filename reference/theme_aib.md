@@ -7,7 +7,11 @@ automatic Google Fonts fallback.
 ## Usage
 
 ``` r
-theme_aib(base_size = 11, base_family = NULL)
+theme_aib(
+  base_size = 11,
+  base_family = NULL,
+  gridlines = c("none", "x", "y", "xy")
+)
 ```
 
 ## Arguments
@@ -20,6 +24,11 @@ theme_aib(base_size = 11, base_family = NULL)
 
   Override base font family. If `NULL`, uses the registered AIB body
   font.
+
+- gridlines:
+
+  Which major gridlines to display. One of `"none"` (default), `"x"`,
+  `"y"`, or `"xy"`.
 
 ## Value
 
@@ -34,5 +43,11 @@ library(ggplot2)
 ggplot(mtcars, aes(mpg, wt)) +
   geom_point() +
   theme_aib()
+
+
+# Add horizontal gridlines
+ggplot(mtcars, aes(mpg, wt)) +
+  geom_point() +
+  theme_aib(gridlines = "y")
 
 ```

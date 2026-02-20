@@ -2,13 +2,17 @@
 
 Identical to
 [`theme_aib()`](https://andrewmcamp.github.io/ggaib/reference/theme_aib.md)
-but with light gray major gridlines. Use for data-dense plots where
-gridlines aid readability.
+but defaults to `gridlines = "xy"` for light gray major gridlines. Use
+for data-dense plots where gridlines aid readability.
 
 ## Usage
 
 ``` r
-theme_aib_grid(base_size = 11, base_family = NULL)
+theme_aib_grid(
+  base_size = 11,
+  base_family = NULL,
+  gridlines = c("xy", "x", "y", "none")
+)
 ```
 
 ## Arguments
@@ -21,6 +25,11 @@ theme_aib_grid(base_size = 11, base_family = NULL)
 
   Override base font family. If `NULL`, uses the registered AIB body
   font.
+
+- gridlines:
+
+  Which major gridlines to display. One of `"none"` (default), `"x"`,
+  `"y"`, or `"xy"`.
 
 ## Value
 
