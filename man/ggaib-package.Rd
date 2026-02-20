@@ -11,8 +11,9 @@ Provides ggplot2 themes and color scales following the visual identity of the An
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/andrewcamp/ggaib}
-  \item Report bugs at \url{https://github.com/andrewcamp/ggaib/issues}
+  \item \url{https://andrewmcamp.github.io/ggaib/}
+  \item \url{https://github.com/andrewmcamp/ggaib}
+  \item Report bugs at \url{https://github.com/andrewmcamp/ggaib/issues}
 }
 
 }

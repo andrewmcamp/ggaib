@@ -7,7 +7,7 @@
 \usage{
 scale_color_aib_div(
   low = "#C00404",
-  mid = "white",
+  mid = "#D0D0D0",
   high = "#1B3E6F",
   midpoint = 0,
   ...
@@ -15,7 +15,7 @@ scale_color_aib_div(
 
 scale_colour_aib_div(
   low = "#C00404",
-  mid = "white",
+  mid = "#D0D0D0",
   high = "#1B3E6F",
   midpoint = 0,
   ...
@@ -24,7 +24,7 @@ scale_colour_aib_div(
 \arguments{
 \item{low}{Color for the low end. Default is AIB red.}
 
-\item{mid}{Color for the midpoint. Default is white.}
+\item{mid}{Color for the midpoint. Default is light gray.}
 
 \item{high}{Color for the high end. Default is AIB navy.}
 
@@ -36,7 +36,7 @@ scale_colour_aib_div(
 A ggplot2 diverging color scale.
 }
 \description{
-Creates a diverging color gradient. Defaults to red-white-navy.
+Creates a diverging color gradient. Defaults to red-gray-navy.
 }
 \examples{
 library(ggplot2)
