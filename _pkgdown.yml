@@ -1,5 +1,9 @@
 url: https://andrewmcamp.github.io/ggaib/
 
+figures:
+  dev: ragg::agg_png
+  dpi: 600
+
 template:
   bootstrap: 5
   bootswatch: cosmo

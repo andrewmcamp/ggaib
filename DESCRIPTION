@@ -19,6 +19,7 @@ Imports:
     sysfonts
 Suggests:
     knitr,
+    ragg,
     rmarkdown,
     scales,
     testthat (>= 3.0.0)
