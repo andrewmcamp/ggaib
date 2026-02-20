@@ -41,6 +41,11 @@ reference:
       - scale_color_aib_div
       - scale_fill_aib_div
 
+  - title: Labels
+    desc: Axis label formatters
+    contents:
+      - aib_label
+
   - title: Palette
     desc: Access brand colors directly
     contents:
