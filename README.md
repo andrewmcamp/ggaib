@@ -18,7 +18,6 @@ devtools::install_github("andrewmcamp/ggaib")
 ``` r
 library(ggaib)
 library(ggplot2)
-#> Warning: package 'ggplot2' was built under R version 4.5.2
 
 aib_colors()
 #>      navy       red   emerald    yellow       sky     taupe     brown      gray 
@@ -188,4 +187,4 @@ ggplot(districts2, aes(enrollment, avg_score, color = spending_change)) +
   theme_aib()
 ```
 
-<img src="man/figures/README-scale-diverging-1.png" alt="Scatter plot of districts colored by year-over-year spending change using a diverging red-white-navy scale" width="672" />
+<img src="man/figures/README-scale-diverging-1.png" alt="Scatter plot of districts colored by year-over-year spending change using a diverging red-taupe-navy scale" width="672" />

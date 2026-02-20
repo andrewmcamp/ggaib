@@ -169,7 +169,7 @@ ggplot(schools, aes(enrollment, avg_score, color = st_ratio)) +
 
 ### Diverging
 
-```{r scale-diverging, fig.alt = "Scatter plot of districts colored by year-over-year spending change using a diverging red-white-navy scale"}
+```{r scale-diverging, fig.alt = "Scatter plot of districts colored by year-over-year spending change using a diverging red-taupe-navy scale"}
 set.seed(42)
 districts2 <- data.frame(
   enrollment = runif(80, 500, 5000),
