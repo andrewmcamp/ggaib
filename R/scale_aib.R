@@ -92,10 +92,10 @@ scale_fill_aib_c <- function(low = "#1B3E6F", high = "#55C8E8", ...) {
 
 #' Diverging AIB Color Scale
 #'
-#' Creates a diverging color gradient. Defaults to red-taupe-navy.
+#' Creates a diverging color gradient. Defaults to red-sky-navy.
 #'
 #' @param low Color for the low end. Default is AIB red.
-#' @param mid Color for the midpoint. Default is AIB taupe.
+#' @param mid Color for the midpoint. Default is AIB sky.
 #' @param high Color for the high end. Default is AIB navy.
 #' @param midpoint The data value mapped to the midpoint color. Default is 0.
 #' @param ... Additional arguments passed to [ggplot2::scale_color_gradient2()].
@@ -109,7 +109,7 @@ scale_fill_aib_c <- function(low = "#1B3E6F", high = "#55C8E8", ...) {
 #'   scale_color_aib_div()
 #'
 #' @export
-scale_color_aib_div <- function(low = "#C00404", mid = "#B5A999",
+scale_color_aib_div <- function(low = "#C00404", mid = "#55C8E8",
                                  high = "#1B3E6F", midpoint = 0, ...) {
   ggplot2::scale_color_gradient2(
     low = low, mid = mid, high = high, midpoint = midpoint, ...
@@ -122,7 +122,7 @@ scale_colour_aib_div <- scale_color_aib_div
 
 #' Diverging AIB Fill Scale
 #'
-#' Creates a diverging fill gradient. Defaults to red-taupe-navy.
+#' Creates a diverging fill gradient. Defaults to red-sky-navy.
 #'
 #' @inheritParams scale_color_aib_div
 #' @param ... Additional arguments passed to [ggplot2::scale_fill_gradient2()].
@@ -130,7 +130,7 @@ scale_colour_aib_div <- scale_color_aib_div
 #' @return A ggplot2 diverging fill scale.
 #'
 #' @export
-scale_fill_aib_div <- function(low = "#C00404", mid = "#B5A999",
+scale_fill_aib_div <- function(low = "#C00404", mid = "#55C8E8",
                                 high = "#1B3E6F", midpoint = 0, ...) {
   ggplot2::scale_fill_gradient2(
     low = low, mid = mid, high = high, midpoint = midpoint, ...
