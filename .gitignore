@@ -9,3 +9,6 @@ doc
 *.so
 *.dll
 docs
+
+/.quarto/
+**/*.quarto_ipynb

@@ -18,6 +18,7 @@ devtools::install_github("andrewmcamp/ggaib")
 ``` r
 library(ggaib)
 library(ggplot2)
+#> Warning: package 'ggplot2' was built under R version 4.5.2
 
 aib_colors()
 #>      navy       red   emerald    yellow       sky     taupe     brown      gray 
