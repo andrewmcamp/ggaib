@@ -1,0 +1,28 @@
+Package: ggaib
+Title: ggplot2 Themes for the Annenberg Institute at Brown University
+Version: 0.1.0
+Authors@R:
+    person("Andrew", "Camp", role = c("aut", "cre"),
+           email = "andrew_camp@brown.edu")
+Description: Provides ggplot2 themes and color scales following the visual
+    identity of the Annenberg Institute at Brown University. Includes
+    publication, presentation, map, and data-dense theme variants plus
+    discrete, continuous, and diverging color scales using the Institute's
+    brand palette.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports:
+    ggplot2 (>= 3.4.0),
+    showtext,
+    sysfonts
+Suggests:
+    knitr,
+    rmarkdown,
+    scales,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+VignetteBuilder: knitr
+URL: https://github.com/andrewcamp/ggaib
+BugReports: https://github.com/andrewcamp/ggaib/issues
