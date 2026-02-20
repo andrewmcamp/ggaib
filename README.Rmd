@@ -15,6 +15,7 @@ knitr::opts_chunk$set(
   dpi = 600,
   out.width = "672"
 )
+showtext::showtext_opts(dpi = 600)
 ```
 
 # ggaib
