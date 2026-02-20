@@ -19,6 +19,7 @@ Imports:
     sysfonts
 Suggests:
     knitr,
+    maps,
     ragg,
     rmarkdown,
     scales,
