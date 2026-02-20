@@ -41,7 +41,7 @@ aib_colors()
 
 A minimal, publication-quality theme with no gridlines and clean axis lines.
 
-```{r theme-aib}
+```{r theme-aib, fig.alt = "Scatter plot of vehicle weight by fuel efficiency using theme_aib"}
 ggplot(mtcars, aes(mpg, wt)) +
   geom_point(aes(color = factor(cyl)), size = 3) +
   scale_color_aib() +
@@ -57,7 +57,7 @@ ggplot(mtcars, aes(mpg, wt)) +
 
 Same as `theme_aib()` with light gray major gridlines for data-dense plots.
 
-```{r theme-grid}
+```{r theme-grid, fig.alt = "Line chart of US unemployment over time using theme_aib_grid"}
 ggplot(economics, aes(date, unemploy / 1000)) +
   geom_line(color = aib_colors("navy"), linewidth = 0.7) +
   labs(
@@ -73,7 +73,7 @@ ggplot(economics, aes(date, unemploy / 1000)) +
 
 Larger text and more spacing, optimized for slides.
 
-```{r theme-slide}
+```{r theme-slide, fig.alt = "Bar chart of cars by cylinder count using theme_aib_slide"}
 ggplot(mtcars, aes(factor(cyl), fill = factor(cyl))) +
   geom_bar() +
   scale_fill_aib() +
@@ -85,7 +85,7 @@ ggplot(mtcars, aes(factor(cyl), fill = factor(cyl))) +
 
 No axes, ticks, or gridlines. Retains title and caption styling.
 
-```{r theme-map}
+```{r theme-map, fig.alt = "Scatter plot with no axes using theme_aib_map"}
 ggplot(mtcars, aes(mpg, wt)) +
   geom_point(color = aib_colors("navy"), size = 3) +
   labs(title = "Vehicle Weight by Fuel Efficiency") +
@@ -96,7 +96,7 @@ ggplot(mtcars, aes(mpg, wt)) +
 
 ### Continuous
 
-```{r scale-continuous}
+```{r scale-continuous, fig.alt = "Scatter plot with continuous navy-to-sky color gradient"}
 ggplot(mtcars, aes(mpg, wt, color = hp)) +
   geom_point(size = 3) +
   scale_color_aib_c() +
@@ -106,7 +106,7 @@ ggplot(mtcars, aes(mpg, wt, color = hp)) +
 
 ### Diverging
 
-```{r scale-diverging}
+```{r scale-diverging, fig.alt = "Scatter plot with diverging red-white-navy color scale"}
 mtcars$hp_centered <- mtcars$hp - mean(mtcars$hp)
 
 ggplot(mtcars, aes(mpg, wt, color = hp_centered)) +

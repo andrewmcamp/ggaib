@@ -1,0 +1,48 @@
+url: https://andrewmcamp.github.io/ggaib/
+
+template:
+  bootstrap: 5
+  bootswatch: cosmo
+  bslib:
+    primary: "#1B3E6F"
+    border-radius: 0.25rem
+
+navbar:
+  structure:
+    left: [intro, reference, articles]
+    right: [search, github]
+  components:
+    github:
+      icon: fa-github
+      href: https://github.com/andrewmcamp/ggaib
+
+reference:
+  - title: Themes
+    desc: ggplot2 themes for different contexts
+    contents:
+      - theme_aib
+      - theme_aib_grid
+      - theme_aib_slide
+      - theme_aib_map
+
+  - title: Color Scales
+    desc: Discrete, continuous, and diverging scales using AIB brand colors
+    contents:
+      - scale_color_aib
+      - scale_fill_aib
+      - scale_color_aib_c
+      - scale_fill_aib_c
+      - scale_color_aib_div
+      - scale_fill_aib_div
+
+  - title: Palette
+    desc: Access brand colors directly
+    contents:
+      - aib_colors
+      - aib_pal
+
+  - title: Fonts
+    desc: Font family management
+    contents:
+      - aib_font
+      - aib_font_families

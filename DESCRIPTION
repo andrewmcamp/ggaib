@@ -24,5 +24,5 @@ Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 VignetteBuilder: knitr
-URL: https://github.com/andrewcamp/ggaib
-BugReports: https://github.com/andrewcamp/ggaib/issues
+URL: https://andrewmcamp.github.io/ggaib/, https://github.com/andrewmcamp/ggaib
+BugReports: https://github.com/andrewmcamp/ggaib/issues

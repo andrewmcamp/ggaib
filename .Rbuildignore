@@ -6,3 +6,6 @@
 ^README\.Rmd$
 ^README\.md$
 ^man/figures$
+^_pkgdown\.yml$
+^pkgdown$
+^\.github$

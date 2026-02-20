@@ -43,7 +43,7 @@ ggplot(mtcars, aes(mpg, wt)) +
   theme_aib()
 ```
 
-![](man/figures/README-theme-aib-1.png)<!-- -->
+<img src="man/figures/README-theme-aib-1.png" alt="Scatter plot of vehicle weight by fuel efficiency using theme_aib"  />
 
 ### `theme_aib_grid()` — Data-Dense
 
@@ -62,7 +62,7 @@ ggplot(economics, aes(date, unemploy / 1000)) +
   theme_aib_grid()
 ```
 
-![](man/figures/README-theme-grid-1.png)<!-- -->
+<img src="man/figures/README-theme-grid-1.png" alt="Line chart of US unemployment over time using theme_aib_grid"  />
 
 ### `theme_aib_slide()` — Presentations
 
@@ -76,7 +76,7 @@ ggplot(mtcars, aes(factor(cyl), fill = factor(cyl))) +
   theme_aib_slide()
 ```
 
-![](man/figures/README-theme-slide-1.png)<!-- -->
+<img src="man/figures/README-theme-slide-1.png" alt="Bar chart of cars by cylinder count using theme_aib_slide"  />
 
 ### `theme_aib_map()` — Maps
 
@@ -89,7 +89,7 @@ ggplot(mtcars, aes(mpg, wt)) +
   theme_aib_map()
 ```
 
-![](man/figures/README-theme-map-1.png)<!-- -->
+<img src="man/figures/README-theme-map-1.png" alt="Scatter plot with no axes using theme_aib_map"  />
 
 ## Color Scales
 
@@ -103,7 +103,7 @@ ggplot(mtcars, aes(mpg, wt, color = hp)) +
   theme_aib()
 ```
 
-![](man/figures/README-scale-continuous-1.png)<!-- -->
+<img src="man/figures/README-scale-continuous-1.png" alt="Scatter plot with continuous navy-to-sky color gradient"  />
 
 ### Diverging
 
@@ -117,4 +117,4 @@ ggplot(mtcars, aes(mpg, wt, color = hp_centered)) +
   theme_aib()
 ```
 
-![](man/figures/README-scale-diverging-1.png)<!-- -->
+<img src="man/figures/README-scale-diverging-1.png" alt="Scatter plot with diverging red-white-navy color scale"  />
