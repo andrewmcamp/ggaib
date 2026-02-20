@@ -3,6 +3,7 @@
 export(aib_colors)
 export(aib_font)
 export(aib_font_families)
+export(aib_label)
 export(aib_pal)
 export(scale_color_aib)
 export(scale_color_aib_c)

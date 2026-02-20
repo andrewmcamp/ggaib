@@ -4,13 +4,20 @@
 \alias{theme_aib}
 \title{Annenberg Institute Base Theme}
 \usage{
-theme_aib(base_size = 11, base_family = NULL)
+theme_aib(
+  base_size = 11,
+  base_family = NULL,
+  gridlines = c("none", "x", "y", "xy")
+)
 }
 \arguments{
 \item{base_size}{Base font size in points. Default is 11.}
 
 \item{base_family}{Override base font family. If \code{NULL}, uses the
 registered AIB body font.}
+
+\item{gridlines}{Which major gridlines to display. One of \code{"none"}
+(default), \code{"x"}, \code{"y"}, or \code{"xy"}.}
 }
 \value{
 A \code{\link[ggplot2:theme]{ggplot2::theme()}} object.
@@ -25,5 +32,10 @@ library(ggplot2)
 ggplot(mtcars, aes(mpg, wt)) +
   geom_point() +
   theme_aib()
+
+# Add horizontal gridlines
+ggplot(mtcars, aes(mpg, wt)) +
+  geom_point() +
+  theme_aib(gridlines = "y")
 
 }

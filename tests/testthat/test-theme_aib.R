@@ -3,10 +3,33 @@ test_that("theme_aib() returns a ggplot2 theme", {
   expect_s3_class(thm, "theme")
 })
 
-test_that("theme_aib() has no gridlines", {
+test_that("theme_aib() has no gridlines by default", {
   thm <- theme_aib()
   expect_equal(thm$panel.grid.major, element_blank())
   expect_equal(thm$panel.grid.minor, element_blank())
+})
+
+test_that("theme_aib(gridlines = 'x') adds only vertical gridlines", {
+  thm <- theme_aib(gridlines = "x")
+  expect_s3_class(thm$panel.grid.major.x, "element_line")
+  # major.y should inherit from panel.grid.major which is element_blank
+  expect_null(thm$panel.grid.major.y)
+})
+
+test_that("theme_aib(gridlines = 'y') adds only horizontal gridlines", {
+  thm <- theme_aib(gridlines = "y")
+  expect_s3_class(thm$panel.grid.major.y, "element_line")
+  expect_null(thm$panel.grid.major.x)
+})
+
+test_that("theme_aib(gridlines = 'xy') adds both gridlines", {
+  thm <- theme_aib(gridlines = "xy")
+  expect_s3_class(thm$panel.grid.major.x, "element_line")
+  expect_s3_class(thm$panel.grid.major.y, "element_line")
+})
+
+test_that("theme_aib() rejects invalid gridlines value", {
+  expect_error(theme_aib(gridlines = "invalid"))
 })
 
 test_that("theme_aib() has axis lines", {

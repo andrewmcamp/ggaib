@@ -4,20 +4,28 @@
 \alias{theme_aib_grid}
 \title{Annenberg Institute Grid Theme}
 \usage{
-theme_aib_grid(base_size = 11, base_family = NULL)
+theme_aib_grid(
+  base_size = 11,
+  base_family = NULL,
+  gridlines = c("xy", "x", "y", "none")
+)
 }
 \arguments{
 \item{base_size}{Base font size in points. Default is 11.}
 
 \item{base_family}{Override base font family. If \code{NULL}, uses the
 registered AIB body font.}
+
+\item{gridlines}{Which major gridlines to display. One of \code{"none"}
+(default), \code{"x"}, \code{"y"}, or \code{"xy"}.}
 }
 \value{
 A \code{\link[ggplot2:theme]{ggplot2::theme()}} object.
 }
 \description{
-Identical to \code{\link[=theme_aib]{theme_aib()}} but with light gray major gridlines.
-Use for data-dense plots where gridlines aid readability.
+Identical to \code{\link[=theme_aib]{theme_aib()}} but defaults to \code{gridlines = "xy"} for light
+gray major gridlines. Use for data-dense plots where gridlines aid
+readability.
 }
 \examples{
 library(ggplot2)

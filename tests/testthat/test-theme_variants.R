@@ -1,12 +1,19 @@
 # theme_aib_grid
-test_that("theme_aib_grid() has major gridlines", {
+test_that("theme_aib_grid() has major gridlines by default", {
   thm <- theme_aib_grid()
-  expect_s3_class(thm$panel.grid.major, "element_line")
+  expect_s3_class(thm$panel.grid.major.x, "element_line")
+  expect_s3_class(thm$panel.grid.major.y, "element_line")
 })
 
 test_that("theme_aib_grid() has no minor gridlines", {
   thm <- theme_aib_grid()
   expect_equal(thm$panel.grid.minor, element_blank())
+})
+
+test_that("theme_aib_grid() accepts gridlines override", {
+  thm <- theme_aib_grid(gridlines = "y")
+  expect_s3_class(thm$panel.grid.major.y, "element_line")
+  expect_null(thm$panel.grid.major.x)
 })
 
 # theme_aib_slide
