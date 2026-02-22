@@ -23,6 +23,11 @@ aib_colors()
 
 ## Themes
 
+There are four core themes included in the `ggaib` pacakge, each
+optimized for a different use case. All themes share the same base font
+and color palette, but differ in gridline and axis styling to suit
+different types of visualizations.
+
 ### `theme_aib()` — Publication
 
 A minimal, publication-quality theme with no gridlines and clean axis
@@ -37,13 +42,15 @@ districts <- data.frame(
 )
 
 ggplot(districts, aes(spending, avg_score, color = urbanicity)) +
-  geom_point(size = 3) +
+  geom_point(size = 2) +
   scale_color_aib() +
+  scale_x_continuous(labels = aib_label("dollar")) +
+  scale_y_continuous(limits = c(215, 300), breaks = seq(200, 300, 20)) +
   labs(
     title = "Per-Pupil Spending and Math Achievement",
     subtitle = "Simulated school district data",
-    x = "Per-Pupil Spending ($1,000s)",
-    y = "Avg. Math Score",
+    x = "Per-Pupil Expenditures\n($1,000s)",
+    y = "Avgerage Math Score",
     color = "Urbanicity",
     caption = "Note: Simulated data for illustration"
   ) +
@@ -74,11 +81,18 @@ gap_data <- data.frame(
 ggplot(gap_data, aes(year, score, color = group)) +
   geom_line(linewidth = 1) +
   scale_color_aib() +
+  scale_x_continuous(
+    breaks = seq(2005, 2025, 3)
+  ) +
+  scale_y_continuous(
+    limits = c(215, 300),
+    breaks = seq(200, 300, 20)
+  ) +
   labs(
     title = "Reading Achievement Gap Over Time",
-    subtitle = "4th-grade scores by family income",
+    subtitle = "4th-grade scores by household income",
     x = NULL,
-    y = "Avg. Reading Score",
+    y = "Average Reading Score",
     color = NULL
   ) +
   theme_aib_grid()
@@ -98,13 +112,16 @@ enrollment <- data.frame(
   students = c(47.3, 3.7, 2.5, 5.7)
 )
 enrollment$type <- factor(enrollment$type, levels = enrollment$type)
+enrollment$students <- enrollment$students * 1e6
 
 ggplot(enrollment, aes(type, students, fill = type)) +
   geom_col() +
   scale_fill_aib() +
+  scale_y_continuous(labels = aib_label("comma")) +
   labs(
     title = "U.S. K\u201312 Enrollment by School Type",
-    y = "Students (millions)"
+    x = "Sector",
+    y = "Enrollments"
   ) +
   theme_aib_slide() +
   theme(legend.position = "none")
@@ -155,8 +172,10 @@ schools <- data.frame(
 schools$avg_score <- schools$avg_score - (schools$st_ratio - 20) * 1.5
 
 ggplot(schools, aes(enrollment, avg_score, color = st_ratio)) +
-  geom_point(size = 3) +
+  geom_point(size = 2) +
   scale_color_aib_c() +
+  scale_x_continuous(labels = aib_label("comma"), breaks = seq(0, 1500, 300)) +
+  scale_y_continuous(limits = c(215, 300), breaks = seq(200, 300, 20)) +
   labs(
     title = "Student-Teacher Ratio Across Schools",
     x = "Enrollment",
@@ -164,6 +183,8 @@ ggplot(schools, aes(enrollment, avg_score, color = st_ratio)) +
     color = "Student-Teacher\nRatio"
   ) +
   theme_aib()
+#> Warning: Removed 3 rows containing missing values or values outside the scale range
+#> (`geom_point()`).
 ```
 
 ![Scatter plot of schools colored by student-teacher ratio using a
@@ -176,13 +197,15 @@ gradient](reference/figures/README-scale-continuous-1.png)
 set.seed(42)
 districts2 <- data.frame(
   enrollment = runif(80, 500, 5000),
-  avg_score = rnorm(80, 260, 20),
+  avg_score = rnorm(80, 255, 20),
   spending_change = rnorm(80, 0, 6)
 )
 
 ggplot(districts2, aes(enrollment, avg_score, color = spending_change)) +
-  geom_point(size = 3) +
+  geom_point(size = 2) +
   scale_color_aib_div() +
+  scale_x_continuous(labels = aib_label("comma"), breaks = seq(0, 5000, 500)) +
+  scale_y_continuous(limits = c(215, 300), breaks = seq(200, 300, 20)) +
   labs(
     title = "Year-over-Year Spending Change",
     x = "Enrollment",
@@ -190,6 +213,8 @@ ggplot(districts2, aes(enrollment, avg_score, color = spending_change)) +
     color = "Spending\nChange (%)"
   ) +
   theme_aib()
+#> Warning: Removed 2 rows containing missing values or values outside the scale range
+#> (`geom_point()`).
 ```
 
 ![Scatter plot of districts colored by year-over-year spending change
