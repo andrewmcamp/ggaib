@@ -8,9 +8,29 @@ figures:
 
 template:
   bootstrap: 5
-  bootswatch: cosmo
+  includes:
+    in_header: |
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=Crimson+Text:ital@0;1&display=swap" rel="stylesheet">
   bslib:
     primary: "#1B3E6F"
+    secondary: "#97A3AE"
+    success: "#00AF9A"
+    danger: "#C00404"
+    warning: "#EBA900"
+    info: "#55C8E8"
+    light: "#F8F8F8"
+    dark: "#333333"
+    body-color: "#333333"
+    link-color: "#1B3E6F"
+    navbar-bg: "#1B3E6F"
+    base_font:
+      google: "Source Sans 3"
+    heading_font:
+      google: "Albert Sans"
+    code_font:
+      google: "Source Code Pro"
     border-radius: 0.25rem
 
 navbar:

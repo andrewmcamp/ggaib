@@ -1,0 +1,165 @@
+/* ggaib pkgdown custom styles
+   Brand: Annenberg Institute at Brown University
+   Colors: navy #1B3E6F, red #C00404, emerald #00AF9A, yellow #EBA900,
+           sky #55C8E8, taupe #B6B09D, brown #503629, gray #97A3AE
+   Fonts: Albert Sans (headings), Source Sans 3 (body), Crimson Text (serif)
+*/
+
+/* --- Typography ---------------------------------------------------------- */
+
+body {
+  font-family: "Source Sans 3", "Source Sans Pro", sans-serif;
+  color: #333333;
+}
+
+h1, h2, h3, h4, h5, h6,
+.page-header h1 {
+  font-family: "Albert Sans", sans-serif;
+  color: #1B3E6F;
+}
+
+/* Package title on homepage */
+.page-header h1 {
+  font-weight: 700;
+}
+
+.page-header .lead {
+  font-family: "Source Sans 3", "Source Sans Pro", sans-serif;
+  color: #555555;
+}
+
+/* --- Navbar -------------------------------------------------------------- */
+
+.navbar {
+  font-family: "Albert Sans", sans-serif;
+  font-weight: 600;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link:focus {
+  color: #55C8E8;
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
+  color: #FFFFFF;
+}
+
+/* --- Links --------------------------------------------------------------- */
+
+a {
+  color: #1B3E6F;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #00AF9A;
+}
+
+/* Reference page function links */
+.contents .name a,
+.ref-index .name a {
+  color: #1B3E6F;
+  font-weight: 600;
+}
+
+.contents .name a:hover,
+.ref-index .name a:hover {
+  color: #00AF9A;
+}
+
+/* --- Code blocks --------------------------------------------------------- */
+
+pre, code {
+  font-family: "Source Code Pro", monospace;
+}
+
+pre {
+  background-color: #F8F8F8;
+  border: 1px solid #E0E0E0;
+  border-radius: 0.25rem;
+}
+
+code {
+  color: #1B3E6F;
+}
+
+pre code {
+  color: #333333;
+}
+
+/* --- Reference index ----------------------------------------------------- */
+
+.ref-index h2 {
+  border-bottom: 2px solid #1B3E6F;
+  padding-bottom: 0.3rem;
+}
+
+.ref-index .desc {
+  color: #555555;
+  font-family: "Source Sans 3", "Source Sans Pro", sans-serif;
+}
+
+/* --- Sidebar / Table of Contents ----------------------------------------- */
+
+.sidebar nav a {
+  color: #555555;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+  color: #1B3E6F;
+}
+
+/* --- Footer -------------------------------------------------------------- */
+
+footer {
+  border-top: 2px solid #1B3E6F;
+  font-family: "Source Sans 3", "Source Sans Pro", sans-serif;
+  color: #555555;
+}
+
+/* --- Article / Vignette content ------------------------------------------ */
+
+.contents h2 {
+  border-bottom: 2px solid #1B3E6F;
+  padding-bottom: 0.3rem;
+  margin-top: 2rem;
+}
+
+.contents h3 {
+  color: #1B3E6F;
+  margin-top: 1.5rem;
+}
+
+/* --- Figures ------------------------------------------------------------- */
+
+.figure img,
+.contents img {
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  margin: 1rem 0;
+}
+
+/* --- Badges and labels --------------------------------------------------- */
+
+.badge-primary,
+.bg-primary {
+  background-color: #1B3E6F !important;
+}
+
+/* --- Tables -------------------------------------------------------------- */
+
+.table thead th {
+  background-color: #1B3E6F;
+  color: #FFFFFF;
+  font-family: "Albert Sans", sans-serif;
+  font-weight: 600;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #F8F8F8;
+}
