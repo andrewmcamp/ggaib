@@ -4,7 +4,7 @@ figures:
   dev: ragg::agg_png
   dpi: 600
   fig.width: 3.5
-  fig.height: 2
+  fig.height: 2.5
 
 template:
   bootstrap: 5
@@ -24,7 +24,7 @@ template:
     dark: "#333333"
     body-color: "#333333"
     link-color: "#1B3E6F"
-    navbar-bg: "#1B3E6F"
+    navbar-bg: "#F8F8F8"
     base_font:
       google: "Source Sans 3"
     heading_font:
@@ -34,6 +34,7 @@ template:
     border-radius: 0.25rem
 
 navbar:
+  type: light
   structure:
     left: [intro, reference, articles]
     right: [search, github]
