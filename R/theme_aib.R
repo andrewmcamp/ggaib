@@ -136,41 +136,6 @@ theme_aib_grid <- function(base_size = 11, base_family = NULL,
   theme_aib(base_size = base_size, base_family = base_family,
             gridlines = gridlines)
 }
-
-#' Annenberg Institute Slide Theme
-#'
-#' Optimized for presentations with larger text and more spacing.
-#' Default base size is 16pt.
-#'
-#' @inheritParams theme_aib
-#'
-#' @return A [ggplot2::theme()] object.
-#'
-#' @examples
-#' library(ggplot2)
-#' ggplot(mtcars, aes(mpg, wt)) +
-#'   geom_point() +
-#'   theme_aib_slide()
-#'
-#' @export
-theme_aib_slide <- function(base_size = 16, base_family = NULL,
-                            gridlines = c("none", "x", "y", "xy")) {
-  gridlines <- match.arg(gridlines)
-  theme_aib(base_size = base_size, base_family = base_family,
-            gridlines = gridlines) +
-    ggplot2::theme(
-      plot.title = ggplot2::element_text(
-        face = "bold",
-        size = base_size * 1.5,
-        margin = ggplot2::margin(b = base_size * 0.7)
-      ),
-      plot.margin = ggplot2::margin(
-        t = base_size * 1.5, r = base_size * 1.5,
-        b = base_size * 1.5, l = base_size * 1.5
-      )
-    )
-}
-
 #' Annenberg Institute Map Theme
 #'
 #' A theme for spatial/map plots with no axes, ticks, or gridlines.

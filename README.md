@@ -17,7 +17,9 @@ devtools::install_github("andrewmcamp/ggaib")
 
 ``` r
 library(ggaib)
+#> Brand fonts not found. Using bundled alternatives (Albert Sans, Source Sans 3, Crimson Text).
 library(ggplot2)
+#> Warning: package 'ggplot2' was built under R version 4.5.2
 
 aib_colors()
 #>      navy       red   emerald    yellow       sky     taupe     brown      gray 
@@ -26,7 +28,7 @@ aib_colors()
 
 ## Themes
 
-There are four core themes included in the `ggaib` pacakge, each
+There are three core themes included in the `ggaib` package, each
 optimized for a different use case. All themes share the same base font
 and color palette, but differ in gridline and axis styling to suit
 different types of visualizations.
@@ -100,33 +102,6 @@ ggplot(gap_data, aes(year, score, color = group)) +
 ```
 
 <img src="man/figures/README-theme-grid-1.png" alt="Line chart showing a narrowing achievement gap between higher-income and lower-income students over time using theme_aib_grid" width="672" />
-
-### `theme_aib_slide()` — Presentations
-
-Larger text and more spacing, optimized for slides.
-
-``` r
-enrollment <- data.frame(
-  type = c("Traditional\nPublic", "Charter", "Magnet", "Private"),
-  students = c(47.3, 3.7, 2.5, 5.7)
-)
-enrollment$type <- factor(enrollment$type, levels = enrollment$type)
-enrollment$students <- enrollment$students * 1e6
-
-ggplot(enrollment, aes(type, students, fill = type)) +
-  geom_col() +
-  scale_fill_aib() +
-  scale_y_continuous(labels = aib_label("comma")) +
-  labs(
-    title = "U.S. K\u201312 Enrollment by School Type",
-    x = "Sector",
-    y = "Enrollments"
-  ) +
-  theme_aib_slide() +
-  theme(legend.position = "none")
-```
-
-<img src="man/figures/README-theme-slide-1.png" alt="Bar chart of K-12 enrollment by school type using theme_aib_slide" width="672" />
 
 ### `theme_aib_map()` — Maps
 

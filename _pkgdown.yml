@@ -51,7 +51,6 @@ reference:
     contents:
       - theme_aib
       - theme_aib_grid
-      - theme_aib_slide
       - theme_aib_map
 
   - title: Color Scales

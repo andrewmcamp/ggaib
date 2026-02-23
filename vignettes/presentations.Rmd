@@ -1,0 +1,125 @@
+---
+title: "Preparing Figures for Presentations"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Preparing Figures for Presentations}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  dev = "ragg_png",
+  fig.width = 7,
+  fig.height = 5,
+  dpi = 600
+)
+```
+
+```{r library}
+library(ggaib)
+library(ggplot2)
+```
+
+Any ggaib theme can be adapted for slides by increasing the `base_size`
+parameter. The default `base_size = 11` is tuned for print and on-screen
+reading; bumping it to 16 or higher makes text legible when projected.
+
+## Default vs. presentation sizing
+
+```{r base-plot, include = FALSE}
+set.seed(42)
+enrollment <- data.frame(
+  type = c("Traditional\nPublic", "Charter", "Magnet", "Private"),
+  students = c(47.3, 3.7, 2.5, 5.7) * 1e6
+)
+enrollment$type <- factor(enrollment$type, levels = enrollment$type)
+```
+
+### `base_size = 11` (default)
+
+```{r size-default}
+ggplot(enrollment, aes(type, students, fill = type)) +
+  geom_col() +
+  scale_fill_aib() +
+  scale_y_continuous(labels = aib_label("comma")) +
+  labs(
+    title = "U.S. K\u201312 Enrollment by Sector",
+    x = NULL,
+    y = "Students"
+  ) +
+  theme_aib() +
+  theme(legend.position = "none")
+```
+
+### `base_size = 16` (presentation)
+
+```{r size-presentation, fig.width = 8.75, fig.height = 6.25}
+ggplot(enrollment, aes(type, students, fill = type)) +
+  geom_col() +
+  scale_fill_aib() +
+  scale_y_continuous(labels = aib_label("comma")) +
+  labs(
+    title = "U.S. K\u201312 Enrollment by Sector",
+    x = NULL,
+    y = "Students"
+  ) +
+  theme_aib(base_size = 16) +
+  theme(legend.position = "none")
+```
+
+## Recommended settings for widescreen slides
+
+Most presentation software uses a 16:9 aspect ratio. A good starting
+point is to export at 10 by 5.625 inches (or the proportional 8.75 by
+6.25 for a 1.4:1 ratio that leaves room for slide titles):
+```r
+ggsave(
+  "figure.png",
+  width = 10,
+  height = 5.625,
+  dpi = 300
+)
+```
+
+## Using gridlines for data-dense slides
+
+If your slide includes a time-series or scatter plot where readers need
+to trace values, use `theme_aib_grid()` with an increased `base_size`:
+
+```{r grid-slide, fig.width = 8.75, fig.height = 6.25}
+set.seed(42)
+years <- 2005:2023
+gap_data <- data.frame(
+  year = rep(years, 2),
+  group = rep(c("Higher-Income", "Lower-Income"), each = length(years)),
+  score = c(
+    270 + cumsum(rnorm(length(years), 0.3, 0.8)),
+    240 + cumsum(rnorm(length(years), 0.8, 0.9))
+  )
+)
+
+ggplot(gap_data, aes(year, score, color = group)) +
+  geom_line(linewidth = 1) +
+  scale_color_aib() +
+  scale_x_continuous(breaks = seq(2005, 2025, 3)) +
+  scale_y_continuous(limits = c(215, 300), breaks = seq(200, 300, 20)) +
+  labs(
+    title = "Reading Achievement Gap Over Time",
+    subtitle = "4th-grade scores by household income",
+    x = NULL,
+    y = "Average Reading Score"
+  ) +
+  theme_aib_grid(base_size = 16)
+```
+
+## Quick reference
+
+| Context | Theme call |
+|---|---|
+| Print / report | `theme_aib()` |
+| Slides (clean) | `theme_aib(base_size = 16)` |
+| Slides (gridlines) | `theme_aib_grid(base_size = 16)` |
+| Slides (map) | `theme_aib_map(base_size = 16)` |

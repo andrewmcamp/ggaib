@@ -38,7 +38,7 @@ aib_colors()
 ```
 
 ## Themes
-There are four core themes included in the `ggaib` pacakge, each optimized for a different use case. All themes share the same base font and color palette, but differ in gridline and axis styling to suit different types of visualizations.
+There are three core themes included in the `ggaib` package, each optimized for a different use case. All themes share the same base font and color palette, but differ in gridline and axis styling to suit different types of visualizations.
 
 ### `theme_aib()` — Publication
 
@@ -102,31 +102,6 @@ ggplot(gap_data, aes(year, score, color = group)) +
     color = NULL
   ) +
   theme_aib_grid()
-```
-
-### `theme_aib_slide()` — Presentations
-
-Larger text and more spacing, optimized for slides.
-
-```{r theme-slide, fig.width = 8.75, fig.height = 6.25, fig.alt = "Bar chart of K-12 enrollment by school type using theme_aib_slide"}
-enrollment <- data.frame(
-  type = c("Traditional\nPublic", "Charter", "Magnet", "Private"),
-  students = c(47.3, 3.7, 2.5, 5.7)
-)
-enrollment$type <- factor(enrollment$type, levels = enrollment$type)
-enrollment$students <- enrollment$students * 1e6
-
-ggplot(enrollment, aes(type, students, fill = type)) +
-  geom_col() +
-  scale_fill_aib() +
-  scale_y_continuous(labels = aib_label("comma")) +
-  labs(
-    title = "U.S. K\u201312 Enrollment by School Type",
-    x = "Sector",
-    y = "Enrollments"
-  ) +
-  theme_aib_slide() +
-  theme(legend.position = "none")
 ```
 
 ### `theme_aib_map()` — Maps

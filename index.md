@@ -11,7 +11,7 @@ ggplot2 themes and color scales following the visual identity of the Annenberg I
 
 ## Features
 
-- **[Themes](articles/themes.html)** --- Publication, presentation, data-dense, and map variants
+- **[Themes](articles/themes.html)** --- Publication, data-dense, and map variants
 - **[Color Scales](articles/color-scales.html)** --- Discrete, continuous, and diverging palettes
 - **[Labels](articles/labels.html)** --- Dollar, comma, and percent axis formatters
 - **[Palettes](articles/palettes.html)** --- Direct access to brand colors

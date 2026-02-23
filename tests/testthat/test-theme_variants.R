@@ -15,18 +15,6 @@ test_that("theme_aib_grid() accepts gridlines override", {
   expect_s3_class(thm$panel.grid.major.y, "element_line")
   expect_null(thm$panel.grid.major.x)
 })
-
-# theme_aib_slide
-test_that("theme_aib_slide() has larger base size", {
-  thm <- theme_aib_slide()
-  expect_true(thm$text$size >= 16)
-})
-
-test_that("theme_aib_slide() can be added to ggplot", {
-  p <- ggplot(mtcars, aes(mpg, wt)) + geom_point() + theme_aib_slide()
-  expect_s3_class(p, "ggplot")
-})
-
 # theme_aib_map
 test_that("theme_aib_map() has no axis elements", {
   thm <- theme_aib_map()
