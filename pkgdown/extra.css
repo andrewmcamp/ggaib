@@ -171,3 +171,32 @@ footer {
 .table-striped tbody tr:nth-of-type(odd) {
   background-color: #F8F8F8;
 }
+
+/* --- Comparison slider --------------------------------------------------- */
+
+.comparison-container {
+  max-width: 700px;
+  margin: 1.5rem auto;
+  text-align: center;
+}
+
+img-comparison-slider {
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  --divider-color: #1B3E6F;
+  --default-handle-color: #1B3E6F;
+  --divider-width: 2px;
+  --default-handle-width: 40px;
+}
+
+img-comparison-slider img {
+  width: 100%;
+  display: block;
+}
+
+.comparison-caption {
+  margin-top: 0.5rem;
+  font-family: "Source Sans 3", "Source Sans Pro", sans-serif;
+  font-size: 0.9rem;
+  color: #555555;
+}
