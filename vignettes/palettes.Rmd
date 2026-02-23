@@ -1,0 +1,119 @@
+---
+title: "Brand Palette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Brand Palette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  dev = "ragg_png",
+  fig.width = 3.5,
+  fig.height = 2.5,
+  dpi = 600
+)
+```
+
+```{r library}
+library(ggaib)
+library(ggplot2)
+```
+
+The AIB brand palette contains eight colors. Two functions provide
+access to these colors for use in custom plots or analyses.
+
+## `aib_colors()` --- Access colors by name
+
+Call `aib_colors()` with no arguments to see the full palette:
+
+```{r all-colors}
+aib_colors()
+```
+
+Pass color names to select specific values:
+
+```{r select-colors}
+aib_colors("navy", "red", "emerald")
+```
+
+An error is raised for invalid names:
+
+```{r invalid-color, error = TRUE}
+aib_colors("purple")
+```
+
+### Palette swatch
+
+```{r swatch, fig.height = 1.5}
+cols <- aib_colors()
+df <- data.frame(
+  name = factor(names(cols), levels = names(cols)),
+  y = 1
+)
+
+ggplot(df, aes(name, y, fill = name)) +
+  geom_tile(color = "white", linewidth = 1) +
+  scale_fill_manual(values = cols) +
+  labs(title = "AIB Brand Palette") +
+  theme_aib() +
+  theme(
+    axis.title = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks = element_blank(),
+    axis.line = element_blank(),
+    legend.position = "none"
+  )
+```
+
+### Using colors directly
+
+`aib_colors()` returns standard hex codes, so the values can be used
+anywhere ggplot2 accepts a color string:
+
+```{r direct-use}
+set.seed(42)
+df <- data.frame(x = 1:50, y = cumsum(rnorm(50)))
+
+ggplot(df, aes(x, y)) +
+  geom_line(linewidth = 1, color = aib_colors("navy")) +
+  geom_hline(
+    yintercept = 0,
+    linetype = "dashed",
+    color = aib_colors("gray")
+  ) +
+  labs(title = "Using Colors Directly", x = NULL, y = NULL) +
+  theme_aib_grid()
+```
+
+## `aib_pal()` --- Palette function for scales
+
+`aib_pal()` returns a function that generates `n` colors from the
+palette. This is the engine behind `scale_color_aib()` and
+`scale_fill_aib()`, but it can also be used on its own:
+
+```{r pal-function}
+pal <- aib_pal()
+pal(3)
+pal(5)
+```
+
+This is useful when you need brand colors outside of a ggplot2 scale,
+for example when building a custom legend or annotating a plot with
+colored text.
+
+## Color reference
+
+| Name | Hex | Preview |
+|:---------|:----------|:---|
+| navy | `#1B3E6F` | |
+| red | `#C00404` | |
+| emerald | `#00AF9A` | |
+| yellow | `#EBA900` | |
+| sky | `#55C8E8` | |
+| taupe | `#B6B09D` | |
+| brown | `#503629` | |
+| gray | `#97A3AE` | |
