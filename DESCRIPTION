@@ -16,8 +16,7 @@ RoxygenNote: 7.3.3
 Imports:
     ggplot2 (>= 3.4.0),
     scales,
-    showtext,
-    sysfonts
+    systemfonts
 Suggests:
     knitr,
     maps,

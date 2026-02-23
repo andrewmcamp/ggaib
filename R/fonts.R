@@ -1,8 +1,8 @@
 #' AIB Font Family Names
 #'
 #' Returns the registered font family name for a given role. The font system
-#' prefers locally installed brand fonts and falls back to Google Fonts
-#' alternatives via showtext.
+#' prefers locally installed brand fonts and falls back to bundled font files
+#' shipped with the package.
 #'
 #' @param role One of `"heading"`, `"body"`, or `"serif"`.
 #'
@@ -58,31 +58,63 @@ aib_font_families <- function() {
 #' Register AIB fonts
 #'
 #' Checks for locally installed preferred fonts. If not found, registers
-#' Google Font fallbacks via sysfonts and enables showtext rendering.
-#' Falls back to `"sans"` for all roles if font registration fails
-#' (e.g., when required packages like jsonlite are unavailable).
+#' bundled fallback fonts from the package's `inst/fonts` directory via
+#' systemfonts. Falls back to `"sans"` for all roles if font registration
+#' fails.
 #'
 #' @keywords internal
 register_aib_fonts <- function() {
   tryCatch(
     {
-      registered <- sysfonts::font_families()
+      sys_families <- unique(systemfonts::system_fonts()$family)
+      reg_families <- unique(systemfonts::registry_fonts()$family)
+      available <- unique(c(sys_families, reg_families))
+
       fonts <- list()
+      font_dir <- system.file("fonts", package = "ggaib")
+
+      # Bundled font files keyed by role
+      font_files <- list(
+        heading = list(
+          plain      = "AlbertSans-Regular.ttf",
+          italic     = "AlbertSans-Italic.ttf",
+          bold       = "AlbertSans-Bold.ttf",
+          bolditalic = "AlbertSans-BoldItalic.ttf"
+        ),
+        body = list(
+          plain      = "SourceSans3-Regular.ttf",
+          italic     = "SourceSans3-Italic.ttf",
+          bold       = "SourceSans3-Bold.ttf",
+          bolditalic = "SourceSans3-BoldItalic.ttf"
+        ),
+        serif = list(
+          plain      = "CrimsonText-Regular.ttf",
+          italic     = "CrimsonText-Italic.ttf",
+          bold       = "CrimsonText-Bold.ttf",
+          bolditalic = "CrimsonText-BoldItalic.ttf"
+        )
+      )
 
       for (role in names(.font_config)) {
         config <- .font_config[[role]]
-        if (config$preferred %in% registered) {
+        if (config$preferred %in% available) {
           fonts[[role]] <- config$preferred
         } else {
-          if (!(config$fallback %in% registered)) {
-            sysfonts::font_add_google(config$fallback, config$fallback)
+          if (!(config$fallback %in% available)) {
+            files <- font_files[[role]]
+            systemfonts::register_font(
+              name       = config$fallback,
+              plain      = file.path(font_dir, files$plain),
+              italic     = file.path(font_dir, files$italic),
+              bold       = file.path(font_dir, files$bold),
+              bolditalic = file.path(font_dir, files$bolditalic)
+            )
           }
           fonts[[role]] <- config$fallback
         }
       }
 
       .aib_env$fonts <- fonts
-      showtext::showtext_auto()
     },
     error = function(e) {
       .aib_env$fonts <- list(
