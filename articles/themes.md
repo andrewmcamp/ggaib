@@ -1,0 +1,162 @@
+# Themes
+
+``` r
+library(ggaib)
+#> Brand fonts not found. Using bundled alternatives (Albert Sans, Source Sans 3, Crimson Text).
+library(ggplot2)
+```
+
+The ggaib package includes four theme variants. All share the same fonts
+and color conventions but differ in gridline and axis treatment to suit
+different contexts.
+
+## `theme_aib()` — Publication
+
+The default theme targets journal articles and reports. It uses a clean,
+minimal design with no gridlines, thin axis lines, and a bottom legend.
+
+``` r
+set.seed(42)
+districts <- data.frame(
+  spending = c(rnorm(40, 11, 2), rnorm(40, 15, 2.5)),
+  avg_score = c(rnorm(40, 250, 15), rnorm(40, 270, 12)),
+  type = rep(c("Urban", "Suburban"), each = 40)
+)
+
+ggplot(districts, aes(spending, avg_score, color = type)) +
+  geom_point(size = 2) +
+  scale_color_aib() +
+  scale_x_continuous(labels = aib_label("dollar")) +
+  scale_y_continuous(limits = c(215, 300), breaks = seq(200, 300, 20)) +
+  labs(
+    title = "Per-Pupil Spending and Math Scores",
+    subtitle = "Simulated school district data",
+    x = "Per-Pupil Expenditures ($1,000s)",
+    y = "Average Math Score",
+    caption = "Note: Simulated data for illustration"
+  ) +
+  theme_aib()
+```
+
+![](themes_files/figure-html/theme-pub-1.png)
+
+### Gridlines
+
+All theme variants accept a `gridlines` argument. Use `"x"`, `"y"`, or
+`"xy"` to add light gray major gridlines:
+
+``` r
+ggplot(districts, aes(spending, avg_score, color = type)) +
+  geom_point(size = 2) +
+  scale_color_aib() +
+  scale_x_continuous(labels = aib_label("dollar")) +
+  scale_y_continuous(limits = c(215, 300), breaks = seq(200, 300, 20)) +
+  labs(
+    title = "Adding Horizontal Gridlines",
+    x = "Per-Pupil Expenditures ($1,000s)",
+    y = "Average Math Score"
+  ) +
+  theme_aib(gridlines = "y")
+```
+
+![](themes_files/figure-html/gridlines-1.png)
+
+## `theme_aib_grid()` — Data-Dense
+
+Identical to
+[`theme_aib()`](https://andrewmcamp.github.io/ggaib/reference/theme_aib.md)
+but defaults to `gridlines = "xy"`. Use this for time-series or scatter
+plots where gridlines help readers trace values.
+
+``` r
+set.seed(42)
+years <- 2005:2023
+gap_data <- data.frame(
+  year = rep(years, 2),
+  group = rep(c("Higher-Income", "Lower-Income"), each = length(years)),
+  score = c(
+    270 + cumsum(rnorm(length(years), 0.3, 0.8)),
+    240 + cumsum(rnorm(length(years), 0.8, 0.9))
+  )
+)
+
+ggplot(gap_data, aes(year, score, color = group)) +
+  geom_line(linewidth = 1) +
+  scale_color_aib() +
+  scale_x_continuous(breaks = seq(2005, 2025, 3)) +
+  scale_y_continuous(limits = c(215, 300), breaks = seq(200, 300, 20)) +
+  labs(
+    title = "Reading Achievement Gap Over Time",
+    subtitle = "4th-grade scores by household income",
+    x = NULL,
+    y = "Average Reading Score"
+  ) +
+  theme_aib_grid()
+```
+
+![](themes_files/figure-html/theme-grid-1.png)
+
+## `theme_aib_slide()` — Presentations
+
+Designed for slides. Uses a larger base font size (16pt instead of 11pt)
+and more generous margins so text is legible when projected.
+
+``` r
+enrollment <- data.frame(
+  type = c("Traditional\nPublic", "Charter", "Magnet", "Private"),
+  students = c(47.3, 3.7, 2.5, 5.7) * 1e6
+)
+enrollment$type <- factor(enrollment$type, levels = enrollment$type)
+
+ggplot(enrollment, aes(type, students, fill = type)) +
+  geom_col() +
+  scale_fill_aib() +
+  scale_y_continuous(labels = aib_label("comma")) +
+  labs(
+    title = "U.S. K\u201312 Enrollment by Sector",
+    x = NULL,
+    y = "Students"
+  ) +
+  theme_aib_slide() +
+  theme(legend.position = "none")
+```
+
+![](themes_files/figure-html/theme-slide-1.png)
+
+## `theme_aib_map()` — Maps
+
+Removes axis lines, ticks, labels, and titles. Retains the plot title,
+subtitle, caption, and legend styling.
+
+``` r
+set.seed(42)
+states <- ggplot2::map_data("state")
+spending_by_state <- data.frame(
+  region = unique(states$region),
+  spending = runif(length(unique(states$region)), 7, 24)
+)
+map_df <- merge(states, spending_by_state, by = "region")
+
+ggplot(map_df, aes(long, lat, group = group, fill = spending)) +
+  geom_polygon(color = "white", linewidth = 0.2) +
+  scale_fill_aib_c() +
+  labs(
+    title = "Per-Pupil Spending by State",
+    fill = "$ (1,000s)",
+    caption = "Note: Simulated data for illustration"
+  ) +
+  coord_fixed(1.3) +
+  theme_aib_map()
+```
+
+![](themes_files/figure-html/theme-map-1.png)
+
+## Common parameters
+
+All four themes accept the same arguments: - `base_size` — Base font
+size in points (default 11, except
+[`theme_aib_slide()`](https://andrewmcamp.github.io/ggaib/reference/theme_aib_slide.md)
+which defaults to 16). - `base_family` — Override the base font family.
+When `NULL` (the default), the registered AIB body font is used. -
+`gridlines` — Which major gridlines to draw: `"none"`, `"x"`, `"y"`, or
+`"xy"`.
