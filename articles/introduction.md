@@ -9,6 +9,7 @@ Institute’s brand palette.
 
 ``` r
 library(ggaib)
+#> Brand fonts not found. Using bundled alternatives (Albert Sans, Source Sans 3, Crimson Text).
 library(ggplot2)
 ```
 
