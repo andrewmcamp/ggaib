@@ -12,11 +12,10 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   dev = "ragg_png",
-  fig.width = 3.5,
-  fig.height = 2.5,
+  fig.width = 7,
+  fig.height = 5,
   dpi = 600
 )
-showtext::showtext_opts(dpi = 600)
 ```
 
 ## Overview
@@ -105,7 +104,7 @@ ggplot(gap_data, aes(year, score, color = group)) +
 
 ### Slide
 
-```{r theme-slide}
+```{r theme-slide, fig.width = 8.75, fig.height = 6.25}
 enrollment <- data.frame(
   type = c("Traditional\nPublic", "Charter", "Magnet", "Private"),
   students = c(47.3, 3.7, 2.5, 5.7)

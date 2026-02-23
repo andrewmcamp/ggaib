@@ -12,8 +12,8 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   dev = "ragg_png",
-  fig.width = 3.5,
-  fig.height = 2.5,
+  fig.width = 7,
+  fig.height = 5,
   dpi = 600
 )
 ```
@@ -111,7 +111,7 @@ ggplot(gap_data, aes(year, score, color = group)) +
 Designed for slides. Uses a larger base font size (16pt instead of 11pt)
 and more generous margins so text is legible when projected.
 
-```{r theme-slide, fig.width = 5, fig.height = 3.5}
+```{r theme-slide, fig.width = 8.75, fig.height = 6.25}
 enrollment <- data.frame(
   type = c("Traditional\nPublic", "Charter", "Magnet", "Private"),
   students = c(47.3, 3.7, 2.5, 5.7) * 1e6
