@@ -1,8 +1,8 @@
 # AIB Font Family Names
 
 Returns the registered font family name for a given role. The font
-system prefers locally installed brand fonts and falls back to Google
-Fonts alternatives via showtext.
+system prefers locally installed brand fonts and falls back to bundled
+font files shipped with the package.
 
 ## Usage
 

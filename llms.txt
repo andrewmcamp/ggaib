@@ -10,7 +10,7 @@ Drag to compare: default ggplot2 (left) vs. ggaib (right)
 ## Features
 
 - **[Themes](https://andrewmcamp.github.io/ggaib/articles/themes.md)** —
-  Publication, presentation, data-dense, and map variants
+  Publication, data-dense, and map variants
 - **[Color
   Scales](https://andrewmcamp.github.io/ggaib/articles/color-scales.md)**
   — Discrete, continuous, and diverging palettes
@@ -46,8 +46,6 @@ ggplot2 themes for different contexts
   : Annenberg Institute Base Theme
 - [`theme_aib_grid()`](https://andrewmcamp.github.io/ggaib/reference/theme_aib_grid.md)
   : Annenberg Institute Grid Theme
-- [`theme_aib_slide()`](https://andrewmcamp.github.io/ggaib/reference/theme_aib_slide.md)
-  : Annenberg Institute Slide Theme
 - [`theme_aib_map()`](https://andrewmcamp.github.io/ggaib/reference/theme_aib_map.md)
   : Annenberg Institute Map Theme
 
@@ -108,4 +106,6 @@ Font family management
 - [Axis Labels](https://andrewmcamp.github.io/ggaib/articles/labels.md):
 - [Brand
   Palette](https://andrewmcamp.github.io/ggaib/articles/palettes.md):
+- [Preparing Figures for
+  Presentations](https://andrewmcamp.github.io/ggaib/articles/presentations.md):
 - [Themes](https://andrewmcamp.github.io/ggaib/articles/themes.md):

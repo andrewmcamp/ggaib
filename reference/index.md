@@ -8,8 +8,6 @@ ggplot2 themes for different contexts
   : Annenberg Institute Base Theme
 - [`theme_aib_grid()`](https://andrewmcamp.github.io/ggaib/reference/theme_aib_grid.md)
   : Annenberg Institute Grid Theme
-- [`theme_aib_slide()`](https://andrewmcamp.github.io/ggaib/reference/theme_aib_slide.md)
-  : Annenberg Institute Slide Theme
 - [`theme_aib_map()`](https://andrewmcamp.github.io/ggaib/reference/theme_aib_map.md)
   : Annenberg Institute Map Theme
 

@@ -3,8 +3,8 @@
 ## Overview
 
 The `ggaib` package provides ggplot2 themes and color scales for the
-Annenberg Institute at Brown University. It includes four theme variants
-and discrete, continuous, and diverging color scales using the
+Annenberg Institute at Brown University. It includes three theme
+variants and discrete, continuous, and diverging color scales using the
 Institute’s brand palette.
 
 ``` r
@@ -28,7 +28,7 @@ aib_colors("navy", "red", "emerald")
 
 ## Themes
 
-There are four core themes included in the `ggaib` pacakge, each
+There are three core themes included in the `ggaib` package, each
 optimized for a different use case. All themes share the same base font
 and color palette, but differ in gridline and axis styling to suit
 different types of visualizations.
@@ -96,31 +96,6 @@ ggplot(gap_data, aes(year, score, color = group)) +
 ```
 
 ![](introduction_files/figure-html/theme-grid-1.png)
-
-### Slide
-
-``` r
-enrollment <- data.frame(
-  type = c("Traditional\nPublic", "Charter", "Magnet", "Private"),
-  students = c(47.3, 3.7, 2.5, 5.7)
-)
-enrollment$type <- factor(enrollment$type, levels = enrollment$type)
-enrollment$students <- enrollment$students * 1e6
-
-ggplot(enrollment, aes(type, students, fill = type)) +
-  geom_col() +
-  scale_fill_aib() +
-  scale_y_continuous(labels = aib_label("comma")) +
-  labs(
-    title = "U.S. K\u201312 Enrollment by School Type",
-    x = "Sector",
-    y = "Enrollments"
-  ) +
-  theme_aib_slide() +
-  theme(legend.position = "none")
-```
-
-![](introduction_files/figure-html/theme-slide-1.png)
 
 ### Map
 

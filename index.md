@@ -10,7 +10,7 @@ Drag to compare: default ggplot2 (left) vs. ggaib (right)
 ## Features
 
 - **[Themes](https://andrewmcamp.github.io/ggaib/articles/themes.md)** —
-  Publication, presentation, data-dense, and map variants
+  Publication, data-dense, and map variants
 - **[Color
   Scales](https://andrewmcamp.github.io/ggaib/articles/color-scales.md)**
   — Discrete, continuous, and diverging palettes

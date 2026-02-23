@@ -6,9 +6,9 @@ library(ggaib)
 library(ggplot2)
 ```
 
-The ggaib package includes four theme variants. All share the same fonts
-and color conventions but differ in gridline and axis treatment to suit
-different contexts.
+The ggaib package includes three theme variants. All share the same
+fonts and color conventions but differ in gridline and axis treatment to
+suit different contexts.
 
 ## `theme_aib()` — Publication
 
@@ -96,33 +96,6 @@ ggplot(gap_data, aes(year, score, color = group)) +
 
 ![](themes_files/figure-html/theme-grid-1.png)
 
-## `theme_aib_slide()` — Presentations
-
-Designed for slides. Uses a larger base font size (16pt instead of 11pt)
-and more generous margins so text is legible when projected.
-
-``` r
-enrollment <- data.frame(
-  type = c("Traditional\nPublic", "Charter", "Magnet", "Private"),
-  students = c(47.3, 3.7, 2.5, 5.7) * 1e6
-)
-enrollment$type <- factor(enrollment$type, levels = enrollment$type)
-
-ggplot(enrollment, aes(type, students, fill = type)) +
-  geom_col() +
-  scale_fill_aib() +
-  scale_y_continuous(labels = aib_label("comma")) +
-  labs(
-    title = "U.S. K\u201312 Enrollment by Sector",
-    x = NULL,
-    y = "Students"
-  ) +
-  theme_aib_slide() +
-  theme(legend.position = "none")
-```
-
-![](themes_files/figure-html/theme-slide-1.png)
-
 ## `theme_aib_map()` — Maps
 
 Removes axis lines, ticks, labels, and titles. Retains the plot title,
@@ -153,10 +126,10 @@ ggplot(map_df, aes(long, lat, group = group, fill = spending)) +
 
 ## Common parameters
 
-All four themes accept the same arguments: - `base_size` — Base font
-size in points (default 11, except
-[`theme_aib_slide()`](https://andrewmcamp.github.io/ggaib/reference/theme_aib_slide.md)
-which defaults to 16). - `base_family` — Override the base font family.
-When `NULL` (the default), the registered AIB body font is used. -
-`gridlines` — Which major gridlines to draw: `"none"`, `"x"`, `"y"`, or
-`"xy"`.
+All three themes accept the same arguments: - `base_size` — Base font
+size in points (default 11). Increase to 16 or higher for presentations
+(see
+[`vignette("presentations")`](https://andrewmcamp.github.io/ggaib/articles/presentations.md)). -
+`base_family` — Override the base font family. When `NULL` (the
+default), the registered AIB body font is used. - `gridlines` — Which
+major gridlines to draw: `"none"`, `"x"`, `"y"`, or `"xy"`.
