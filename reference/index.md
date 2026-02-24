@@ -13,7 +13,8 @@ ggplot2 themes for different contexts
 
 ## Color Scales
 
-Discrete, continuous, and diverging scales using AIB brand colors
+Discrete, continuous, diverging, and binned scales using AIB brand
+colors
 
 - [`scale_color_aib()`](https://andrewmcamp.github.io/ggaib/reference/scale_color_aib.md)
   [`scale_colour_aib()`](https://andrewmcamp.github.io/ggaib/reference/scale_color_aib.md)
@@ -30,6 +31,11 @@ Discrete, continuous, and diverging scales using AIB brand colors
   : Diverging AIB Color Scale
 - [`scale_fill_aib_div()`](https://andrewmcamp.github.io/ggaib/reference/scale_fill_aib_div.md)
   : Diverging AIB Fill Scale
+- [`scale_color_aib_b()`](https://andrewmcamp.github.io/ggaib/reference/scale_color_aib_b.md)
+  [`scale_colour_aib_b()`](https://andrewmcamp.github.io/ggaib/reference/scale_color_aib_b.md)
+  : Binned AIB Color Scale
+- [`scale_fill_aib_b()`](https://andrewmcamp.github.io/ggaib/reference/scale_fill_aib_b.md)
+  : Binned AIB Fill Scale
 
 ## Labels
 

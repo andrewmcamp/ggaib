@@ -5,6 +5,8 @@
 - [Color
   Scales](https://andrewmcamp.github.io/ggaib/articles/color-scales.md):
 - [Font System](https://andrewmcamp.github.io/ggaib/articles/fonts.md):
+- [Going
+  Legend-less](https://andrewmcamp.github.io/ggaib/articles/going-legend-less.md):
 - [Getting Started with
   ggaib](https://andrewmcamp.github.io/ggaib/articles/introduction.md):
 - [Axis Labels](https://andrewmcamp.github.io/ggaib/articles/labels.md):

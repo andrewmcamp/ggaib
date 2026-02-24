@@ -7,7 +7,17 @@ colors for easy identification.
 ## Usage
 
 ``` r
-aib_direct_label(data, x, y, group, colors = NULL, adjust = NULL, ...)
+aib_direct_label(
+  data,
+  x,
+  y,
+  group,
+  colors = NULL,
+  adjust = NULL,
+  size = NULL,
+  bold = FALSE,
+  ...
+)
 ```
 
 ## Arguments
@@ -33,6 +43,15 @@ aib_direct_label(data, x, y, group, colors = NULL, adjust = NULL, ...)
   Optional named numeric vector of vertical adjustments to prevent label
   overlap (e.g., `c("Group A" = 0.5)`). Groups not listed receive no
   adjustment.
+
+- size:
+
+  Font size for the labels in points. Defaults to `NULL`, which uses the
+  theme's default axis text size.
+
+- bold:
+
+  Logical; if `TRUE`, labels are rendered in bold. Defaults to `FALSE`.
 
 - ...:
 
