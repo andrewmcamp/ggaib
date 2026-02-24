@@ -64,9 +64,11 @@ reference:
       - scale_fill_aib_div
 
   - title: Labels
-    desc: Axis label formatters
+    desc: Axis label formatters and annotation helpers
     contents:
       - aib_label
+      - aib_color_title
+      - aib_direct_label
 
   - title: Palette
     desc: Access brand colors directly

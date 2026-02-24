@@ -99,6 +99,7 @@ aib_direct_label <- function(data, x, y, group, colors = NULL,
       axis.text.y.right = ggplot2::element_text(
         colour = unname(label_colors)
       ),
+      axis.line.y.right = ggplot2::element_blank(),
       axis.ticks.y.right = ggplot2::element_blank(),
       legend.position = "none"
     )
