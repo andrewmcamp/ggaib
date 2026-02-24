@@ -86,14 +86,22 @@ ggplot(gap_data, aes(year, score, color = group)) +
   geom_line(linewidth = 1) +
   scale_color_aib() +
   scale_x_continuous(breaks = seq(2005, 2025, 3)) +
-  scale_y_continuous(limits = c(215, 300), breaks = seq(200, 300, 20)) +
   labs(
     title = "Reading Achievement Gap Over Time",
-    subtitle = "4th-grade scores by household income",
     x = NULL,
     y = "Average Reading Score"
   ) +
-  theme_aib_grid(base_size = 16)
+  theme_aib_grid(base_size = 16) +
+  aib_color_title(
+    "Higher-Income and Lower-Income 4th-grade scores",
+    colors = c(
+      "Higher-Income" = unname(aib_colors("navy")),
+      "Lower-Income"  = unname(aib_colors("red"))
+    ),
+    element = "subtitle"
+  ) +
+  aib_direct_label(gap_data, "year", "score", "group",
+                   limits = c(215, 300), breaks = seq(200, 300, 20))
 ```
 
 ![](presentations_files/figure-html/grid-slide-1.png)

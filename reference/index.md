@@ -33,10 +33,14 @@ Discrete, continuous, and diverging scales using AIB brand colors
 
 ## Labels
 
-Axis label formatters
+Axis label formatters and annotation helpers
 
 - [`aib_label()`](https://andrewmcamp.github.io/ggaib/reference/aib_label.md)
   : Axis Label Formatters
+- [`aib_color_title()`](https://andrewmcamp.github.io/ggaib/reference/aib_color_title.md)
+  : Colored Title or Subtitle
+- [`aib_direct_label()`](https://andrewmcamp.github.io/ggaib/reference/aib_direct_label.md)
+  : Direct Labels on a Secondary Y-Axis
 
 ## Palette
 
