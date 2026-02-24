@@ -4,7 +4,17 @@
 \alias{aib_direct_label}
 \title{Direct Labels on a Secondary Y-Axis}
 \usage{
-aib_direct_label(data, x, y, group, colors = NULL, adjust = NULL, ...)
+aib_direct_label(
+  data,
+  x,
+  y,
+  group,
+  colors = NULL,
+  adjust = NULL,
+  size = NULL,
+  bold = FALSE,
+  ...
+)
 }
 \arguments{
 \item{data}{Data frame used in the plot.}
@@ -19,6 +29,12 @@ colors (e.g., \code{c("Group A" = "#1B3E6F")}). Defaults to
 \item{adjust}{Optional named numeric vector of vertical adjustments
 to prevent label overlap (e.g., \code{c("Group A" = 0.5)}). Groups not
 listed receive no adjustment.}
+
+\item{size}{Font size for the labels in points. Defaults to \code{NULL},
+which uses the theme's default axis text size.}
+
+\item{bold}{Logical; if \code{TRUE}, labels are rendered in bold.
+Defaults to \code{FALSE}.}
 
 \item{...}{Additional arguments passed to \code{\link[ggplot2:scale_continuous]{ggplot2::scale_y_continuous()}}
 (e.g., \code{limits}, \code{breaks}, \code{labels}).}

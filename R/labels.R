@@ -47,6 +47,10 @@ aib_label <- function(type = c("comma", "dollar", "percent", "pp")) {
 #' @param adjust Optional named numeric vector of vertical adjustments
 #'   to prevent label overlap (e.g., `c("Group A" = 0.5)`). Groups not
 #'   listed receive no adjustment.
+#' @param size Font size for the labels in points. Defaults to `NULL`,
+#'   which uses the theme's default axis text size.
+#' @param bold Logical; if `TRUE`, labels are rendered in bold.
+#'   Defaults to `FALSE`.
 #' @param ... Additional arguments passed to [ggplot2::scale_y_continuous()]
 #'   (e.g., `limits`, `breaks`, `labels`).
 #'
@@ -70,7 +74,7 @@ aib_label <- function(type = c("comma", "dollar", "percent", "pp")) {
 #'
 #' @export
 aib_direct_label <- function(data, x, y, group, colors = NULL,
-                             adjust = NULL, ...) {
+                             adjust = NULL, size = NULL, bold = FALSE, ...) {
   groups <- unique(data[[group]])
 
   # Find the y-value at the maximum x for each group
@@ -97,7 +101,9 @@ aib_direct_label <- function(data, x, y, group, colors = NULL,
   label_theme <- suppressWarnings(
     ggplot2::theme(
       axis.text.y.right = ggplot2::element_text(
-        colour = unname(label_colors)
+        colour = unname(label_colors),
+        size = size,
+        face = if (bold) "bold" else "plain"
       ),
       axis.line.y.right = ggplot2::element_blank(),
       axis.ticks.y.right = ggplot2::element_blank(),
@@ -159,7 +165,7 @@ aib_color_title <- function(text, colors,
 
   # Wrap each matched substring in a colored span
   for (nm in names(colors)) {
-    span <- paste0("<span style='color:", colors[[nm]], "'>", nm, "</span>")
+    span <- paste0("<span style='color:", colors[[nm]], ";font-weight:bold'>", nm, "</span>")
     text <- gsub(nm, span, text, fixed = TRUE)
   }
 

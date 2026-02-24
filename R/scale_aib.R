@@ -136,3 +136,54 @@ scale_fill_aib_div <- function(low = "#C00404", mid = "#D0D0D0",
     low = low, mid = mid, high = high, midpoint = midpoint, ...
   )
 }
+
+#' Binned AIB Color Scale
+#'
+#' Creates a binned (stepped) color gradient between two brand colors.
+#' Defaults to a navy-to-sky gradient with 5 breaks. Supply a numeric
+#' vector to `breaks` for custom bin boundaries.
+#'
+#' @param low Color for the low end of the gradient. Default is AIB navy.
+#' @param high Color for the high end of the gradient. Default is AIB sky.
+#' @param n.breaks Number of breaks for automatic binning. Default is 5.
+#'   Ignored when `breaks` is provided explicitly via `...`.
+#' @param ... Additional arguments passed to [ggplot2::scale_color_steps()]
+#'   (e.g., `breaks`, `labels`, `limits`).
+#'
+#' @return A ggplot2 binned color scale.
+#'
+#' @examples
+#' library(ggplot2)
+#' ggplot(mtcars, aes(mpg, wt, color = hp)) +
+#'   geom_point() +
+#'   scale_color_aib_b()
+#'
+#' @export
+scale_color_aib_b <- function(low = "#1B3E6F", high = "#55C8E8",
+                               n.breaks = 5, ...) {
+  ggplot2::scale_color_steps(
+    low = low, high = high, n.breaks = n.breaks, ...
+  )
+}
+
+#' @rdname scale_color_aib_b
+#' @export
+scale_colour_aib_b <- scale_color_aib_b
+
+#' Binned AIB Fill Scale
+#'
+#' Creates a binned (stepped) fill gradient between two brand colors.
+#'
+#' @inheritParams scale_color_aib_b
+#' @param ... Additional arguments passed to [ggplot2::scale_fill_steps()]
+#'   (e.g., `breaks`, `labels`, `limits`).
+#'
+#' @return A ggplot2 binned fill scale.
+#'
+#' @export
+scale_fill_aib_b <- function(low = "#1B3E6F", high = "#55C8E8",
+                              n.breaks = 5, ...) {
+  ggplot2::scale_fill_steps(
+    low = low, high = high, n.breaks = n.breaks, ...
+  )
+}
