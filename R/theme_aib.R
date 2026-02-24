@@ -87,7 +87,7 @@ theme_aib <- function(base_size = 11, base_family = NULL,
       ),
 
       # Legend
-      legend.position = "bottom",
+      legend.position = "top",
       legend.title = ggplot2::element_blank(),
       legend.key = ggplot2::element_rect(fill = "white", colour = NA),
       legend.background = ggplot2::element_rect(fill = "white", colour = NA),

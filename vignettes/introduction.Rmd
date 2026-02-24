@@ -59,13 +59,21 @@ ggplot(districts, aes(spending, avg_score, color = urbanicity)) +
   scale_y_continuous(limits = c(215, 300), breaks = seq(200, 300, 20)) +
   labs(
     title = "Per-Pupil Spending and Math Achievement",
-    subtitle = "Simulated school district data",
     x = "Per-Pupil Expenditures\n($1,000s)",
     y = "Avgerage Math Score",
-    color = "Urbanicity",
     caption = "Note: Simulated data for illustration"
   ) +
-  theme_aib()
+  theme_aib() +
+  aib_color_title(
+    "For Urban, Suburban, and Rural school districts",
+    colors = c(
+      "Urban"    = unname(aib_colors("navy")),
+      "Suburban" = unname(aib_colors("red")),
+      "Rural"    = unname(aib_colors("emerald"))
+    ),
+    element = "subtitle"
+  ) +
+  theme(legend.position = "none")
 ```
 
 ### Grid
@@ -85,21 +93,23 @@ gap_data <- data.frame(
 ggplot(gap_data, aes(year, score, color = group)) +
   geom_line(linewidth = 1) +
   scale_color_aib() +
-  scale_x_continuous(
-    breaks = seq(2005, 2025, 3)
-  ) +
-  scale_y_continuous(
-    limits = c(215, 300),
-    breaks = seq(200, 300, 20)
-  ) +
+  scale_x_continuous(breaks = seq(2005, 2025, 3)) +
   labs(
     title = "Reading Achievement Gap Over Time",
-    subtitle = "4th-grade scores by household income",
     x = NULL,
-    y = "Average Reading Score",
-    color = NULL
+    y = "Average Reading Score"
   ) +
-  theme_aib_grid()
+  theme_aib_grid() +
+  aib_color_title(
+    "Higher-Income and Lower-Income 4th-grade scores",
+    colors = c(
+      "Higher-Income" = unname(aib_colors("navy")),
+      "Lower-Income"  = unname(aib_colors("red"))
+    ),
+    element = "subtitle"
+  ) +
+  aib_direct_label(gap_data, "year", "score", "group",
+                   limits = c(215, 300), breaks = seq(200, 300, 20))
 ```
 
 ### Map

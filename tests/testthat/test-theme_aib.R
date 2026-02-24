@@ -44,9 +44,9 @@ test_that("theme_aib() has white background", {
   expect_equal(bg$fill, "white")
 })
 
-test_that("theme_aib() has legend at bottom", {
+test_that("theme_aib() has legend at top", {
   thm <- theme_aib()
-  expect_equal(thm$legend.position, "bottom")
+  expect_equal(thm$legend.position, "top")
 })
 
 test_that("theme_aib() has left-aligned title", {
