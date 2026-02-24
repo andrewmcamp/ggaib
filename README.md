@@ -17,6 +17,7 @@ devtools::install_github("andrewmcamp/ggaib")
 
 ``` r
 library(ggaib)
+#> Brand fonts not found. Using bundled alternatives (Albert Sans, Source Sans 3, Crimson Text).
 library(ggplot2)
 #> Warning: package 'ggplot2' was built under R version 4.5.2
 
