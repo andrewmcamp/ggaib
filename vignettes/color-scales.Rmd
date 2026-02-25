@@ -23,9 +23,10 @@ library(ggaib)
 library(ggplot2)
 ```
 
-The ggaib package provides color and fill scales in three flavors:
-discrete, continuous, and diverging. Each is available for both `color`
-and `fill` aesthetics. All use colors from the AIB brand palette.
+The ggaib package provides color and fill scales in four flavors:
+discrete, binned, continuous, and diverging. Each is available for both
+`color` and `fill` aesthetics. All use colors from the AIB brand
+palette.
 
 ## Discrete
 
@@ -39,7 +40,7 @@ set.seed(42)
 districts <- data.frame(
   spending = c(rnorm(30, 11, 2), rnorm(30, 15, 2.5), rnorm(30, 13, 3)),
   avg_score = c(rnorm(30, 250, 15), rnorm(30, 270, 12), rnorm(30, 258, 18)),
-  urbanicity = rep(c("Urban", "Suburban", "Rural"), each = 30)
+  urbanicity = rep(c("Group A", "Group B", "Group C"), each = 30)
 )
 
 # Create example figure
@@ -82,12 +83,14 @@ ggplot(enrollment, aes(sector, pct, fill = sector)) +
 The palette contains eight colors. If your data has more than eight
 levels a warning is issued.
 
-## Continuous
+## Binned (Recommended for Continuous Variables)
 
-`scale_color_aib_c()` and `scale_fill_aib_c()` create a two-color
-gradient. The default runs from navy to sky.
+`scale_color_aib_b()` and `scale_fill_aib_b()` discretize a continuous
+variable into bins and display a clean, discrete legend. This is
+generally preferred over a smooth gradient because binned colors are
+easier to read and compare across data points.
 
-```{r continuous}
+```{r binned}
 # Simulate data
 set.seed(42)
 schools <- data.frame(
@@ -103,7 +106,7 @@ ggplot(schools, aes(enrollment, avg_score, color = st_ratio)) +
   scale_color_aib_b() +
   scale_x_continuous(labels = aib_label("comma")) +
   labs(
-    title = "Continuous Color Scale",
+    title = "Binned Color Scale",
     x = "Enrollment",
     y = "Avg. Test Score",
     color = "Student-Teacher\nRatio"
@@ -111,18 +114,41 @@ ggplot(schools, aes(enrollment, avg_score, color = st_ratio)) +
   theme_aib()
 ```
 
-Override the endpoints with the `low` and `high` arguments:
+Override the endpoints with `low` and `high`, or control the number of
+bins with `n.breaks`:
 
-```{r continuous-custom}
+```{r binned-custom}
 ggplot(schools, aes(enrollment, avg_score, color = st_ratio)) +
   geom_point(size = 2) +
-  scale_color_aib_c(
+  scale_color_aib_b(
     low = aib_colors("emerald"),
-    high = aib_colors("yellow")
+    high = aib_colors("yellow"),
+    n.breaks = 4
   ) +
   scale_x_continuous(labels = aib_label("comma")) +
   labs(
-    title = "Custom Gradient Endpoints",
+    title = "Custom Binned Scale",
+    x = "Enrollment",
+    y = "Avg. Test Score",
+    color = "Student-Teacher\nRatio"
+  ) +
+  theme_aib()
+```
+
+## Continuous
+
+`scale_color_aib_c()` and `scale_fill_aib_c()` create a smooth
+two-color gradient. These are available when a continuous colorbar is
+needed, but in most cases the binned scales above are a better choice
+for readability.
+
+```{r continuous}
+ggplot(schools, aes(enrollment, avg_score, color = st_ratio)) +
+  geom_point(size = 2) +
+  scale_color_aib_c() +
+  scale_x_continuous(labels = aib_label("comma")) +
+  labs(
+    title = "Continuous Color Scale",
     x = "Enrollment",
     y = "Avg. Test Score",
     color = "Student-Teacher\nRatio"
@@ -179,12 +205,12 @@ ggplot(districts2, aes(enrollment, avg_score, color = spending_change)) +
 |:---|:---|:---|
 | `scale_color_aib()` / `scale_colour_aib()` | color | Discrete |
 | `scale_fill_aib()` | fill | Discrete |
+| `scale_color_aib_b()` / `scale_colour_aib_b()` | color | Binned |
+| `scale_fill_aib_b()` | fill | Binned |
 | `scale_color_aib_c()` / `scale_colour_aib_c()` | color | Continuous |
 | `scale_fill_aib_c()` | fill | Continuous |
 | `scale_color_aib_div()` / `scale_colour_aib_div()` | color | Diverging |
 | `scale_fill_aib_div()` | fill | Diverging |
 
 All scale functions pass additional arguments (`...`) through to the
-underlying ggplot2 scale, so any parameter supported by
-`discrete_scale()`, `scale_color_gradient()`, or
-`scale_color_gradient2()` can be used.
+underlying ggplot2 scale.

@@ -54,16 +54,16 @@ reference:
       - theme_aib_map
 
   - title: Color Scales
-    desc: Discrete, continuous, diverging, and binned scales using AIB brand colors
+    desc: Discrete, binned, continuous, and diverging scales using AIB brand colors
     contents:
       - scale_color_aib
       - scale_fill_aib
+      - scale_color_aib_b
+      - scale_fill_aib_b
       - scale_color_aib_c
       - scale_fill_aib_c
       - scale_color_aib_div
       - scale_fill_aib_div
-      - scale_color_aib_b
-      - scale_fill_aib_b
 
   - title: Labels
     desc: Axis label formatters and annotation helpers

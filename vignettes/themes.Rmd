@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r library}
+```{r library, include = FALSE}
 library(ggaib)
 library(ggplot2)
 ```
@@ -138,7 +138,7 @@ map_df <- merge(states, spending_by_state, by = "region")
 
 ggplot(map_df, aes(long, lat, group = group, fill = spending)) +
   geom_polygon(color = "white", linewidth = 0.2) +
-  scale_fill_aib_c() +
+  scale_fill_aib_b() +
   labs(
     title = "Per-Pupil Spending by State",
     fill = "$ (1,000s)",
