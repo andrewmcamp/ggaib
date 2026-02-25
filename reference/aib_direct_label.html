@@ -63,6 +63,7 @@ colors for easy identification.</p>
 <span>  adjust <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  size <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  bold <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  gap <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -100,6 +101,12 @@ which uses the theme's default axis text size.</p></dd>
 <dt id="arg-bold">bold<a class="anchor" aria-label="anchor" href="#arg-bold"></a></dt>
 <dd><p>Logical; if <code>TRUE</code>, labels are rendered in bold.
 Defaults to <code>FALSE</code>.</p></dd>
+
+
+<dt id="arg-gap">gap<a class="anchor" aria-label="anchor" href="#arg-gap"></a></dt>
+<dd><p>Space between the right edge of the plot and the labels,
+in points. Smaller values pull the labels closer to the data.
+Defaults to <code>NULL</code>, which uses the ggplot2 default spacing.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>

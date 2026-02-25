@@ -16,6 +16,7 @@ aib_direct_label(
   adjust = NULL,
   size = NULL,
   bold = FALSE,
+  gap = NULL,
   ...
 )
 ```
@@ -52,6 +53,12 @@ aib_direct_label(
 - bold:
 
   Logical; if `TRUE`, labels are rendered in bold. Defaults to `FALSE`.
+
+- gap:
+
+  Space between the right edge of the plot and the labels, in points.
+  Smaller values pull the labels closer to the data. Defaults to `NULL`,
+  which uses the ggplot2 default spacing.
 
 - ...:
 

@@ -1,11 +1,5 @@
 # Color Scales
 
-``` r
-library(ggaib)
-#> Brand fonts not found. Using bundled alternatives (Albert Sans, Source Sans 3, Crimson Text).
-library(ggplot2)
-```
-
 The ggaib package provides color and fill scales in three flavors:
 discrete, continuous, and diverging. Each is available for both `color`
 and `fill` aesthetics. All use colors from the AIB brand palette.
@@ -19,6 +13,7 @@ map categorical variables to the eight-color brand palette. Colors are
 ordered for maximum visual contrast.
 
 ``` r
+# Simulate data
 set.seed(42)
 districts <- data.frame(
   spending = c(rnorm(30, 11, 2), rnorm(30, 15, 2.5), rnorm(30, 13, 3)),
@@ -26,6 +21,7 @@ districts <- data.frame(
   urbanicity = rep(c("Urban", "Suburban", "Rural"), each = 30)
 )
 
+# Create example figure
 ggplot(districts, aes(spending, avg_score, color = urbanicity)) +
   geom_point(size = 2) +
   scale_color_aib() +
@@ -40,15 +36,21 @@ ggplot(districts, aes(spending, avg_score, color = urbanicity)) +
 ![](color-scales_files/figure-html/discrete-color-1.png)
 
 ``` r
+# Simulate data
 enrollment <- data.frame(
   sector = c("Public", "Charter", "Magnet", "Private"),
-  pct = c(79.8, 6.2, 4.2, 9.8)
+  pct = c(0.798, 0.062, 0.042, 0.098)
 )
 enrollment$sector <- factor(enrollment$sector, levels = enrollment$sector)
 
+# Create example figure
 ggplot(enrollment, aes(sector, pct, fill = sector)) +
   geom_col() +
   scale_fill_aib() +
+  scale_y_continuous(
+    labels = aib_label("percent"),
+    limits = c(0, 1)
+  ) +
   labs(
     title = "Discrete Fill Scale",
     x = NULL,
@@ -71,6 +73,7 @@ and
 create a two-color gradient. The default runs from navy to sky.
 
 ``` r
+# Simulate data
 set.seed(42)
 schools <- data.frame(
   enrollment = runif(80, 200, 1500),
@@ -79,9 +82,10 @@ schools <- data.frame(
 )
 schools$avg_score <- schools$avg_score - (schools$st_ratio - 20) * 1.5
 
+# Make example figure
 ggplot(schools, aes(enrollment, avg_score, color = st_ratio)) +
   geom_point(size = 2) +
-  scale_color_aib_c() +
+  scale_color_aib_b() +
   scale_x_continuous(labels = aib_label("comma")) +
   labs(
     title = "Continuous Color Scale",
