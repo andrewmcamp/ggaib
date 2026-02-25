@@ -122,8 +122,8 @@ test_that("aib_color_title() wraps matched words in colored spans", {
     colors = c("A" = "#FF0000", "B" = "#0000FF")
   )
   title_text <- result[[1]]$title
-  expect_match(title_text, "<span style='color:#FF0000'>A</span>")
-  expect_match(title_text, "<span style='color:#0000FF'>B</span>")
+  expect_match(title_text, "<b><span style='color:#FF0000'>A</span></b>", fixed = TRUE)
+  expect_match(title_text, "<b><span style='color:#0000FF'>B</span></b>", fixed = TRUE)
 })
 
 test_that("aib_color_title() sets element_markdown for title", {

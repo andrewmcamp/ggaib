@@ -165,7 +165,7 @@ aib_color_title <- function(text, colors,
 
   # Wrap each matched substring in a colored span
   for (nm in names(colors)) {
-    span <- paste0("<span style='color:", colors[[nm]], ";font-weight:bold'>", nm, "</span>")
+    span <- paste0("<b><span style='color:", colors[[nm]], "'>", nm, "</span></b>")
     text <- gsub(nm, span, text, fixed = TRUE)
   }
 

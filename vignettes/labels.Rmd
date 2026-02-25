@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r library}
+```{r library, echo = FALSE}
 library(ggaib)
 library(ggplot2)
 ```
@@ -69,7 +69,11 @@ spending$state <- factor(spending$state, levels = spending$state)
 ggplot(spending, aes(state, ppexp, fill = state)) +
   geom_col() +
   scale_fill_aib() +
-  scale_y_continuous(labels = aib_label("dollar")) +
+  scale_y_continuous(
+    labels = aib_label("dollar"),
+    limits = c(0, 30000),
+    breaks = seq(0, 30000, 5000)
+    ) +
   labs(title = "Dollar Format", x = NULL, y = "Per-Pupil Spending") +
   theme_aib() +
   theme(legend.position = "none")

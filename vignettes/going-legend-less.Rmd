@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r library}
+```{r library, echo = FALSE}
 library(ggaib)
 library(ggplot2)
 ```
@@ -44,10 +44,11 @@ enrollment <- data.frame(
   year = rep(2018:2024, 3),
   students = c(
     seq(48.0, 47.1, length.out = 7),
-    seq(3.4, 3.9, length.out = 7),
-    seq(5.8, 5.5, length.out = 7)
-  ) * 1e6,
-  sector = rep(c("Traditional", "Charter", "Private"), each = 7)
+    seq(31.4, 32.9, length.out = 7),
+    seq(25.8, 25.5, length.out = 7)
+  ) *
+    10000,
+  sector = rep(c("Charter", "Private", "Traditional"), each = 7)
 )
 ```
 
@@ -70,7 +71,8 @@ ggplot(enrollment, aes(year, students, color = sector)) +
   theme_aib() +
   aib_direct_label(
     enrollment, "year", "students", "sector",
-    labels = aib_label("comma")
+    labels = aib_label("comma"),
+    bold = TRUE
   )
 ```
 
