@@ -1,10 +1,6 @@
 # Going Legend-less
 
-``` r
-library(ggaib)
-#> Brand fonts not found. Using bundled alternatives (Albert Sans, Source Sans 3, Crimson Text).
-library(ggplot2)
-```
+    #> Brand fonts not found. Using bundled alternatives (Albert Sans, Source Sans 3, Crimson Text).
 
 Legends force readers to look back and forth between the plot and a
 color key. Two ggaib helpers let you drop the legend entirely:
@@ -29,10 +25,11 @@ enrollment <- data.frame(
   year = rep(2018:2024, 3),
   students = c(
     seq(48.0, 47.1, length.out = 7),
-    seq(3.4, 3.9, length.out = 7),
-    seq(5.8, 5.5, length.out = 7)
-  ) * 1e6,
-  sector = rep(c("Traditional", "Charter", "Private"), each = 7)
+    seq(31.4, 32.9, length.out = 7),
+    seq(25.8, 25.5, length.out = 7)
+  ) *
+    10000,
+  sector = rep(c("Charter", "Private", "Traditional"), each = 7)
 )
 ```
 
@@ -58,7 +55,8 @@ ggplot(enrollment, aes(year, students, color = sector)) +
   theme_aib() +
   aib_direct_label(
     enrollment, "year", "students", "sector",
-    labels = aib_label("comma")
+    labels = aib_label("comma"),
+    bold = TRUE
   )
 ```
 

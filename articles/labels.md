@@ -1,10 +1,6 @@
 # Axis Labels
 
-``` r
-library(ggaib)
-#> Brand fonts not found. Using bundled alternatives (Albert Sans, Source Sans 3, Crimson Text).
-library(ggplot2)
-```
+    #> Brand fonts not found. Using bundled alternatives (Albert Sans, Source Sans 3, Crimson Text).
 
 [`aib_label()`](https://andrewmcamp.github.io/ggaib/reference/aib_label.md)
 is a convenience wrapper around common
@@ -55,7 +51,11 @@ spending$state <- factor(spending$state, levels = spending$state)
 ggplot(spending, aes(state, ppexp, fill = state)) +
   geom_col() +
   scale_fill_aib() +
-  scale_y_continuous(labels = aib_label("dollar")) +
+  scale_y_continuous(
+    labels = aib_label("dollar"),
+    limits = c(0, 30000),
+    breaks = seq(0, 30000, 5000)
+    ) +
   labs(title = "Dollar Format", x = NULL, y = "Per-Pupil Spending") +
   theme_aib() +
   theme(legend.position = "none")
