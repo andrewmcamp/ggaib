@@ -108,6 +108,28 @@ test_that("aib_direct_label() removes the legend", {
   expect_equal(theme_part$legend.position, "none")
 })
 
+test_that("aib_direct_label() respects gap argument", {
+  df <- data.frame(
+    year = rep(2020:2024, 2),
+    value = c(1:5, 5:1),
+    group = rep(c("A", "B"), each = 5)
+  )
+  result <- aib_direct_label(df, "year", "value", "group", gap = 2)
+  theme_part <- result[[2]]
+  expect_equal(theme_part$axis.text.y.right$margin, ggplot2::margin(l = 2))
+})
+
+test_that("aib_direct_label() leaves margin NULL by default", {
+  df <- data.frame(
+    year = rep(2020:2024, 2),
+    value = c(1:5, 5:1),
+    group = rep(c("A", "B"), each = 5)
+  )
+  result <- aib_direct_label(df, "year", "value", "group")
+  theme_part <- result[[2]]
+  expect_null(theme_part$axis.text.y.right$margin)
+})
+
 # --- aib_color_title() ---
 
 test_that("aib_color_title() returns a list of ggplot2 components", {

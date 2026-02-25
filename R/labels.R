@@ -51,6 +51,9 @@ aib_label <- function(type = c("comma", "dollar", "percent", "pp")) {
 #'   which uses the theme's default axis text size.
 #' @param bold Logical; if `TRUE`, labels are rendered in bold.
 #'   Defaults to `FALSE`.
+#' @param gap Space between the right edge of the plot and the labels,
+#'   in points. Smaller values pull the labels closer to the data.
+#'   Defaults to `NULL`, which uses the ggplot2 default spacing.
 #' @param ... Additional arguments passed to [ggplot2::scale_y_continuous()]
 #'   (e.g., `limits`, `breaks`, `labels`).
 #'
@@ -74,7 +77,8 @@ aib_label <- function(type = c("comma", "dollar", "percent", "pp")) {
 #'
 #' @export
 aib_direct_label <- function(data, x, y, group, colors = NULL,
-                             adjust = NULL, size = NULL, bold = FALSE, ...) {
+                             adjust = NULL, size = NULL, bold = FALSE,
+                             gap = NULL, ...) {
   groups <- unique(data[[group]])
 
   # Find the y-value at the maximum x for each group
@@ -103,7 +107,8 @@ aib_direct_label <- function(data, x, y, group, colors = NULL,
       axis.text.y.right = ggplot2::element_text(
         colour = unname(label_colors),
         size = size,
-        face = if (bold) "bold" else "plain"
+        face = if (bold) "bold" else "plain",
+        margin = if (!is.null(gap)) ggplot2::margin(l = gap) else NULL
       ),
       axis.line.y.right = ggplot2::element_blank(),
       axis.ticks.y.right = ggplot2::element_blank(),

@@ -162,7 +162,8 @@ scale_fill_aib_div <- function(low = "#C00404", mid = "#D0D0D0",
 scale_color_aib_b <- function(low = "#1B3E6F", high = "#55C8E8",
                                n.breaks = 5, ...) {
   ggplot2::scale_color_steps(
-    low = low, high = high, n.breaks = n.breaks, ...
+    low = low, high = high, n.breaks = n.breaks,
+    guide = ggplot2::guide_legend(), ...
   )
 }
 
@@ -184,6 +185,7 @@ scale_colour_aib_b <- scale_color_aib_b
 scale_fill_aib_b <- function(low = "#1B3E6F", high = "#55C8E8",
                               n.breaks = 5, ...) {
   ggplot2::scale_fill_steps(
-    low = low, high = high, n.breaks = n.breaks, ...
+    low = low, high = high, n.breaks = n.breaks,
+    guide = ggplot2::guide_legend(), ...
   )
 }

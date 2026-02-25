@@ -13,6 +13,7 @@ aib_direct_label(
   adjust = NULL,
   size = NULL,
   bold = FALSE,
+  gap = NULL,
   ...
 )
 }
@@ -35,6 +36,10 @@ which uses the theme's default axis text size.}
 
 \item{bold}{Logical; if \code{TRUE}, labels are rendered in bold.
 Defaults to \code{FALSE}.}
+
+\item{gap}{Space between the right edge of the plot and the labels,
+in points. Smaller values pull the labels closer to the data.
+Defaults to \code{NULL}, which uses the ggplot2 default spacing.}
 
 \item{...}{Additional arguments passed to \code{\link[ggplot2:scale_continuous]{ggplot2::scale_y_continuous()}}
 (e.g., \code{limits}, \code{breaks}, \code{labels}).}
