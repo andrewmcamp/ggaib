@@ -79,10 +79,6 @@
 
     
     
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://andrewmcamp.github.io/ggaib/">ggaib</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; Brand fonts not found. Using bundled alternatives (Albert Sans, Source Sans 3, Crimson Text).</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></code></pre></div>
 <p>The AIB brand palette contains eight colors. Two functions provide
 access to these colors for use in custom plots or analyses.</p>
 <div class="section level2">
@@ -91,24 +87,24 @@ access to these colors for use in custom plots or analyses.</p>
 </h2>
 <p>Call <code><a href="../reference/aib_colors.html">aib_colors()</a></code> with no arguments to see the full
 palette:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/aib_colors.html">aib_colors</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt;      navy       red   emerald    yellow       sky     taupe     brown      gray </span></span>
 <span><span class="co">#&gt; "#1B3E6F" "#C00404" "#00AF9A" "#EBA900" "#55C8E8" "#B6B09D" "#503629" "#97A3AE"</span></span></code></pre></div>
 <p>Pass color names to select specific values:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/aib_colors.html">aib_colors</a></span><span class="op">(</span><span class="st">"navy"</span>, <span class="st">"red"</span>, <span class="st">"emerald"</span><span class="op">)</span></span>
 <span><span class="co">#&gt;      navy       red   emerald </span></span>
 <span><span class="co">#&gt; "#1B3E6F" "#C00404" "#00AF9A"</span></span></code></pre></div>
 <p>An error is raised for invalid names:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/aib_colors.html">aib_colors</a></span><span class="op">(</span><span class="st">"purple"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;">:</span></span></span>
 <span><span class="co">#&gt; <span style="color: #BBBB00;">!</span> purple not valid AIB colors. Choose from: navy, red, emerald, yellow, sky, taupe, brown, gray</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="palette-swatch">Palette swatch<a class="anchor" aria-label="anchor" href="#palette-swatch"></a>
 </h3>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cols</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/aib_colors.html">aib_colors</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
 <span>  name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">cols</span><span class="op">)</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">cols</span><span class="op">)</span><span class="op">)</span>,</span>
@@ -134,7 +130,7 @@ palette:</p>
 </h3>
 <p><code><a href="../reference/aib_colors.html">aib_colors()</a></code> returns standard hex codes, so the values
 can be used anywhere ggplot2 accepts a color string:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">42</span><span class="op">)</span></span>
 <span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">50</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html" class="external-link">cumsum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">50</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -158,7 +154,7 @@ can be used anywhere ggplot2 accepts a color string:</p>
 <code>n</code> colors from the palette. This is the engine behind
 <code><a href="../reference/scale_color_aib.html">scale_color_aib()</a></code> and <code><a href="../reference/scale_fill_aib.html">scale_fill_aib()</a></code>, but it
 can also be used on its own:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pal</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/aib_pal.html">aib_pal</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu">pal</span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "#1B3E6F" "#C00404" "#00AF9A"</span></span>

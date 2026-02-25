@@ -1,7 +1,5 @@
 # Axis Labels
 
-    #> Brand fonts not found. Using bundled alternatives (Albert Sans, Source Sans 3, Crimson Text).
-
 [`aib_label()`](https://andrewmcamp.github.io/ggaib/reference/aib_label.md)
 is a convenience wrapper around common
 [scales](https://scales.r-lib.org) label functions. It returns a labeler

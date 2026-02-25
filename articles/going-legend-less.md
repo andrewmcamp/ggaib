@@ -1,7 +1,5 @@
 # Going Legend-less
 
-    #> Brand fonts not found. Using bundled alternatives (Albert Sans, Source Sans 3, Crimson Text).
-
 Legends force readers to look back and forth between the plot and a
 color key. Two ggaib helpers let you drop the legend entirely:
 

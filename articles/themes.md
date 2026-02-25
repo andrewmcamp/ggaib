@@ -1,11 +1,5 @@
 # Themes
 
-``` r
-library(ggaib)
-#> Brand fonts not found. Using bundled alternatives (Albert Sans, Source Sans 3, Crimson Text).
-library(ggplot2)
-```
-
 The ggaib package includes three theme variants. All share the same
 fonts and color conventions but differ in gridline and axis treatment to
 suit different contexts.
@@ -128,7 +122,7 @@ map_df <- merge(states, spending_by_state, by = "region")
 
 ggplot(map_df, aes(long, lat, group = group, fill = spending)) +
   geom_polygon(color = "white", linewidth = 0.2) +
-  scale_fill_aib_c() +
+  scale_fill_aib_b() +
   labs(
     title = "Per-Pupil Spending by State",
     fill = "$ (1,000s)",

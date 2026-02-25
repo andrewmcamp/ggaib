@@ -79,7 +79,6 @@
 
     
     
-<pre><code><span><span class="co">#&gt; Brand fonts not found. Using bundled alternatives (Albert Sans, Source Sans 3, Crimson Text).</span></span></code></pre>
 <p>Legends force readers to look back and forth between the plot and a
 color key. Two ggaib helpers let you drop the legend entirely:</p>
 <ul>
@@ -98,7 +97,7 @@ modifications.</p>
 </h2>
 <p>The examples below use a small panel of enrollment trends across
 three school sectors.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">enrollment</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
 <span>  year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">2018</span><span class="op">:</span><span class="fl">2024</span>, <span class="fl">3</span><span class="op">)</span>,</span>
 <span>  students <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
@@ -118,7 +117,7 @@ labels positioned at each group’s final y-value. Because it sets
 <code><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous()</a></code> with a secondary axis internally, use
 it <strong>instead of</strong> a separate
 <code><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous()</a></code> call.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">enrollment</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">students</span>, color <span class="op">=</span> <span class="va">sector</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span>linewidth <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/scale_color_aib.html">scale_color_aib</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -139,7 +138,7 @@ it <strong>instead of</strong> a separate
 </h3>
 <p>When groups have similar endpoint values, labels can overlap. Use the
 <code>adjust</code> argument to nudge individual labels up or down.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">enrollment</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">students</span>, color <span class="op">=</span> <span class="va">sector</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span>linewidth <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/scale_color_aib.html">scale_color_aib</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -161,7 +160,7 @@ it <strong>instead of</strong> a separate
 </h3>
 <p>Use <code>size</code> and <code>bold</code> to control the appearance
 of the direct labels.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">enrollment</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">students</span>, color <span class="op">=</span> <span class="va">sector</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span>linewidth <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/scale_color_aib.html">scale_color_aib</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -185,7 +184,7 @@ of the direct labels.</p>
 <p><code><a href="../reference/aib_color_title.html">aib_color_title()</a></code> renders specific words in the title or
 subtitle in color, so readers can identify groups without any legend at
 all. Pass a named character vector mapping substrings to colors.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sector_colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
 <span>  <span class="st">"Traditional"</span> <span class="op">=</span> <span class="fu"><a href="../reference/aib_colors.html">aib_colors</a></span><span class="op">(</span><span class="st">"navy"</span><span class="op">)</span>,</span>
 <span>  <span class="st">"Charter"</span>     <span class="op">=</span> <span class="fu"><a href="../reference/aib_colors.html">aib_colors</a></span><span class="op">(</span><span class="st">"red"</span><span class="op">)</span>,</span>
@@ -209,7 +208,7 @@ all. Pass a named character vector mapping substrings to colors.</p>
 <p><img src="going-legend-less_files/figure-html/color-title-1.png" class="r-plt" alt="" width="4200"></p>
 <p>Use <code>element = "subtitle"</code> to color the subtitle
 instead.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">enrollment</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">students</span>, color <span class="op">=</span> <span class="va">sector</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span>linewidth <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/scale_color_aib.html">scale_color_aib</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -234,7 +233,7 @@ instead.</p>
 <h2 id="putting-it-all-together">Putting it all together<a class="anchor" aria-label="anchor" href="#putting-it-all-together"></a>
 </h2>
 <p>Combine both functions for a polished, legend-free chart.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">enrollment</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">students</span>, color <span class="op">=</span> <span class="va">sector</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span>linewidth <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/scale_color_aib.html">scale_color_aib</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>

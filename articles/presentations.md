@@ -1,11 +1,5 @@
 # Preparing Figures for Presentations
 
-``` r
-library(ggaib)
-#> Brand fonts not found. Using bundled alternatives (Albert Sans, Source Sans 3, Crimson Text).
-library(ggplot2)
-```
-
 Any ggaib theme can be adapted for slides by increasing the `base_size`
 parameter. The default `base_size = 11` is tuned for print and on-screen
 reading; bumping it to 16 or higher makes text legible when projected.

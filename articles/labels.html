@@ -79,7 +79,6 @@
 
     
     
-<pre><code><span><span class="co">#&gt; Brand fonts not found. Using bundled alternatives (Albert Sans, Source Sans 3, Crimson Text).</span></span></code></pre>
 <p><code><a href="../reference/aib_label.html">aib_label()</a></code> is a convenience wrapper around common <a href="https://scales.r-lib.org" class="external-link">scales</a> label functions. It returns a
 labeler function that can be passed directly to the <code>labels</code>
 argument of any continuous scale.</p>
@@ -122,7 +121,7 @@ argument of any continuous scale.</p>
 <div class="section level3">
 <h3 id="comma">Comma<a class="anchor" aria-label="anchor" href="#comma"></a>
 </h3>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">enrollment</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
 <span>  sector <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Public"</span>, <span class="st">"Charter"</span>, <span class="st">"Magnet"</span>, <span class="st">"Private"</span><span class="op">)</span>,</span>
 <span>  students <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">47.3</span>, <span class="fl">3.7</span>, <span class="fl">2.5</span>, <span class="fl">5.7</span><span class="op">)</span> <span class="op">*</span> <span class="fl">1e6</span></span>
@@ -141,7 +140,7 @@ argument of any continuous scale.</p>
 <div class="section level3">
 <h3 id="dollar">Dollar<a class="anchor" aria-label="anchor" href="#dollar"></a>
 </h3>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">spending</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
 <span>  state <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"NY"</span>, <span class="st">"NJ"</span>, <span class="st">"CT"</span>, <span class="st">"MA"</span>, <span class="st">"VT"</span><span class="op">)</span>,</span>
 <span>  ppexp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">26.6</span>, <span class="fl">21.0</span>, <span class="fl">21.8</span>, <span class="fl">18.6</span>, <span class="fl">20.3</span><span class="op">)</span> <span class="op">*</span> <span class="fl">1000</span></span>
@@ -164,7 +163,7 @@ argument of any continuous scale.</p>
 <div class="section level3">
 <h3 id="percent">Percent<a class="anchor" aria-label="anchor" href="#percent"></a>
 </h3>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">grad</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
 <span>  year <span class="op">=</span> <span class="fl">2015</span><span class="op">:</span><span class="fl">2023</span>,</span>
 <span>  rate <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0.83</span>, <span class="fl">0.87</span>, length.out <span class="op">=</span> <span class="fl">9</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">9</span>, <span class="fl">0</span>, <span class="fl">0.005</span><span class="op">)</span></span>
@@ -181,7 +180,7 @@ argument of any continuous scale.</p>
 <div class="section level3">
 <h3 id="percentage-points">Percentage points<a class="anchor" aria-label="anchor" href="#percentage-points"></a>
 </h3>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">42</span><span class="op">)</span></span>
 <span><span class="va">effects</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
 <span>  program <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Tutoring"</span>, <span class="st">"Summer School"</span>, <span class="st">"Mentoring"</span>, <span class="st">"After-School"</span><span class="op">)</span>,</span>
@@ -208,7 +207,7 @@ argument of any continuous scale.</p>
 </h2>
 <p>Pass <code><a href="../reference/aib_label.html">aib_label()</a></code> to the <code>labels</code> argument of
 any continuous scale:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu"><a href="../reference/aib_label.html">aib_label</a></span><span class="op">(</span><span class="st">"dollar"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu"><a href="../reference/aib_label.html">aib_label</a></span><span class="op">(</span><span class="st">"percent"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>For formats not covered by <code><a href="../reference/aib_label.html">aib_label()</a></code>, use the <a href="https://scales.r-lib.org" class="external-link">scales</a> package directly.</p>

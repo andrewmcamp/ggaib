@@ -1,11 +1,5 @@
 # Brand Palette
 
-``` r
-library(ggaib)
-#> Brand fonts not found. Using bundled alternatives (Albert Sans, Source Sans 3, Crimson Text).
-library(ggplot2)
-```
-
 The AIB brand palette contains eight colors. Two functions provide
 access to these colors for use in custom plots or analyses.
 
